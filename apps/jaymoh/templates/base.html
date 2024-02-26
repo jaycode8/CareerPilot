@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-mode="light" class="scroll-smooths group" data-theme-color="violet">
+
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta content="Tailwind Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="" name="Themesbrand" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="{{ url_for('main.static', filename='images/favicon.ico')}}" />
+    <link rel="stylesheet"
+        href="{{ url_for('main.static', filename='libs/choices.js/public/assets/styles/choices.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='libs/swiper/swiper-bundle.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='css/icons.css')}}" />
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='css/icons.min.css')}}" />
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='css/tailwind.css')}}" />
+</head>
+
+<body class="bg-white dark:bg-neutral-800">
+    {% include 'header.html' %}
+    {% block content %}{% endblock %}
+    {% include 'footer.html' %}
+
+    <script src="https://unicons.iconscout.com/release/v4.0.0/script/monochrome/bundle.js"></script>
+    <script src="{{ url_for('main.static', filename='libs/@popperjs/core/umd/popper.min.js')}}"></script>
+    <script src="{{ url_for('main.static', filename='libs/simplebar/simplebar.min.js')}}"></script>
+    <script src="{{ url_for('main.static', filename='js/pages/switcher.js')}}"></script>
+    <script src="{{ url_for('main.static', filename='libs/choices.js/public/assets/scripts/choices.min.js')}}"></script>
+    <script src="{{ url_for('main.static', filename='js/pages/job-list.init.js')}}"></script>
+    <script src="{{ url_for('main.static', filename='js/pages/dropdown&modal.init.js')}}"></script>
+
+    <script src="{{ url_for('main.static', filename='libs/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{ url_for('main.static', filename='js/pages/swiper.init.js')}}"></script>
+    <script src="{{ url_for('main.static', filename='js/pages/nav&tabs.js')}}"></script>
+
+    <script src="{{ url_for('main.static', filename='js/app.js')}}"></script>
+</body>
+
+</html>
