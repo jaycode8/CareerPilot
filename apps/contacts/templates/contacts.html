@@ -1,9 +1,9 @@
-{% extends 'base.html' %}
-{% block title %}careerpilot - contact page{% endblock %}
-{% block content%}
+{% extends 'base.html' %} {% block title %}careerpilot - contact page{% endblock %} {% block content%}
 <div class="fixed z-40 flex flex-col gap-3 ltr:left-0 rtl:right-0 top-[330px]">
     <!-- light-dark mode button -->
-    <a href="javascript: void(0);" id="ltr-rtl"
+    <a
+        href="javascript: void(0);"
+        id="ltr-rtl"
         class="z-40 px-3 py-3 font-medium text-white transition-all duration-300 ease-linear group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 text-14 hover:bg-violet-700 ltr:rounded-r rtl:rounded-l"
         onclick="changeMode(event)">
         <span class="ltr:hidden">LTR</span>
@@ -14,32 +14,26 @@
     <div class="w-48 p-4 bg-white shadow-md">
         <div>
             <h3 class="mb-2 font-semibold text-gray-900 text-16">Select your color</h3>
-            <ul class="flex gap-3 ">
+            <ul class="flex gap-3">
                 <li>
-                    <a class="h-10 w-10 bg-[#815DF2] block rounded-full" data-color="violet"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#815DF2] block rounded-full" data-color="violet" href="javascript: void(0);"></a>
                 </li>
                 <li>
-                    <a class="h-10 w-10 bg-[#69cdf1] block rounded-full" data-color="sky"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#69cdf1] block rounded-full" data-color="sky" href="javascript: void(0);"></a>
                 </li>
                 <li>
-                    <a class="h-10 w-10 bg-[#dd4948] block rounded-full" data-color="red"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#dd4948] block rounded-full" data-color="red" href="javascript: void(0);"></a>
                 </li>
             </ul>
             <ul class="flex gap-3 mt-4">
                 <li>
-                    <a class="h-10 w-10 bg-[#38c284] block rounded-full" data-color="green"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#38c284] block rounded-full" data-color="green" href="javascript: void(0);"></a>
                 </li>
                 <li>
-                    <a class="h-10 w-10 bg-[#e35490] block rounded-full" data-color="pink"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#e35490] block rounded-full" data-color="pink" href="javascript: void(0);"></a>
                 </li>
                 <li>
-                    <a class="h-10 w-10 bg-[#5276f4] block rounded-full" data-color="blue"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#5276f4] block rounded-full" data-color="blue" href="javascript: void(0);"></a>
                 </li>
             </ul>
         </div>
@@ -47,9 +41,7 @@
             <h3 class="mb-2 font-semibold text-gray-900 text-16">Light/dark Layout</h3>
             <div class="flex justify-center mt-2">
                 <!-- light-dark mode button -->
-                <a href="javascript: void(0);" id="mode"
-                    class="z-40 px-6 py-2 font-normal text-white transition-all duration-300 ease-linear rounded text-14 bg-zinc-800"
-                    onclick="changeMode(event)">
+                <a href="javascript: void(0);" id="mode" class="z-40 px-6 py-2 font-normal text-white transition-all duration-300 ease-linear rounded text-14 bg-zinc-800" onclick="changeMode(event)">
                     <i class="hidden text-xl uil uil-brightness dark:text-white dark:inline-block"></i>
                     <i class="inline-block text-xl uil uil-moon dark:text-zinc-800 dark:hidden"></i>
                 </a>
@@ -58,7 +50,9 @@
     </div>
 </div>
 <!-- light-dark mode button -->
-<a href="javascript: void(0);" onclick="toggleSwitcher()"
+<a
+    href="javascript: void(0);"
+    onclick="toggleSwitcher()"
     class="fixed z-40 flex flex-col gap-3 px-4 py-3 font-normal text-white group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 top-96 text-14 ltr:rounded-r rtl:rounded-l">
     <i class="text-xl mdi mdi-cog mdi-spin"></i>
 </a>
@@ -75,10 +69,8 @@
                     </div>
                 </div>
             </div>
-            <img src="{{ url_for('main.static', filename='images/about/shape.png')}}" alt=""
-                class="absolute block bg-cover -bottom-0 dark:hidden">
-            <img src="{{ url_for('main.static', filename='images/about/shape-dark.png')}}" alt=""
-                class="absolute hidden bg-cover -bottom-0 dark:block">
+            <img src="{{ url_for('main.static', filename='images/about/shape.png')}}" alt="" class="absolute block bg-cover -bottom-0 dark:hidden" />
+            <img src="{{ url_for('main.static', filename='images/about/shape-dark.png')}}" alt="" class="absolute hidden bg-cover -bottom-0 dark:block" />
         </section>
         <section class="pt-16">
             <div class="container mx-auto">
@@ -86,61 +78,72 @@
                     <div class="col-span-12 lg:col-span-6">
                         <div class="mt-4">
                             <h3 class="mb-2 text-3xl text-gray-900 dark:text-white">Get in touch</h3>
-                            <p class="text-gray-500 dark:text-gray-300">Start working with careerpilot that can provide
-                                everything you need to generate
-                                awareness, drive traffic, connect.</p>
-                            <form method="post" class="mt-4 contact-form" name="myForm" id="myForm">
+                            <p class="text-gray-500 dark:text-gray-300">Start working with careerpilot that can provide everything you need to generate awareness, drive traffic, connect.</p>
+                            <form class="mt-4 contact-form" name="myForm" id="myForm">
                                 <span id="error-msg"></span>
                                 <div class="grid grid-cols-12 gap-5">
                                     <div class="col-span-12">
                                         <div class="mb-3">
                                             <label for="nameInput" class="text-gray-900 dark:text-gray-50">Name</label>
-                                            <input type="text" name="name" id="name"
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                id="name"
                                                 class="w-full mt-1 rounded border-gray-100/50 placeholder:text-sm placeholder:text-gray-400 dark:bg-transparent dark:border-gray-800 focus:ring-0 focus:ring-offset-0 dark:text-gray-200"
-                                                placeholder="Enter your name">
+                                                placeholder="Enter your name" />
                                         </div>
-                                    </div><!--end col-->
+                                    </div>
                                     <div class="col-span-12 lg:col-span-6">
                                         <div class="mb-3">
-                                            <label for="emailInput"
-                                                class="text-gray-900 dark:text-gray-50">Email</label>
-                                            <input type="email"
+                                            <label for="emailInput" class="text-gray-900 dark:text-gray-50">Email</label>
+                                            <input
+                                                type="email"
                                                 class="w-full mt-1 rounded border-gray-100/50 placeholder:text-sm placeholder:text-gray-400 dark:bg-transparent dark:border-gray-800 focus:ring-0 focus:ring-offset-0 dark:text-gray-200"
-                                                id="emaiol" name="email" placeholder="Enter your email">
+                                                id="emaiol"
+                                                name="email"
+                                                placeholder="Enter your email" />
                                         </div>
-                                    </div><!--end col-->
+                                    </div>
+                                    <!--end col-->
                                     <div class="col-span-12 lg:col-span-6">
                                         <div class="mb-3">
-                                            <label for="subjectInput"
-                                                class="text-gray-900 dark:text-gray-50">Subject</label>
-                                            <input type="text"
+                                            <label for="subjectInput" class="text-gray-900 dark:text-gray-50">Subject</label>
+                                            <input
+                                                type="text"
                                                 class="w-full mt-1 rounded border-gray-100/50 placeholder:text-sm placeholder:text-gray-400 dark:bg-transparent dark:border-gray-800 focus:ring-0 focus:ring-offset-0 dark:text-gray-200"
-                                                id="subjectInput" name="subject" placeholder="Enter your subject">
+                                                id="subjectInput"
+                                                name="subject"
+                                                placeholder="Enter your subject" />
                                         </div>
-                                    </div><!--end col-->
+                                    </div>
+                                    <!--end col-->
                                     <div class="col-span-12">
                                         <div class="mb-3">
-                                            <label for="meassageInput" class="text-gray-900 dark:text-gray-50">Your
-                                                Message</label>
+                                            <label for="meassageInput" class="text-gray-900 dark:text-gray-50">Your Message</label>
                                             <textarea
                                                 class="w-full mt-1 rounded border-gray-100/50 placeholder:text-sm placeholder:text-gray-400 dark:bg-transparent dark:border-gray-800 focus:ring-0 focus:ring-offset-0 dark:text-gray-200"
-                                                id="meassageInput" placeholder="Enter your message" name="comments"
+                                                id="meassageInput"
+                                                placeholder="Enter your message"
+                                                name="comments"
                                                 rows="5"></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-right">
-                                    <button type="submit" id="submit" name="submit"
+                                    <button
+                                        type="submit"
+                                        id="submit"
+                                        name="submit"
                                         class="text-white border-transparent btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500">
-                                        Send Message <i class="uil uil-message ms-1"></i></button>
+                                        Send Message <i class="uil uil-message ms-1"></i>
+                                    </button>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="col-span-12 lg:col-span-5 lg:ml-20">
                         <div class="text-center">
-                            <img src="{{ url_for('main.static', filename='images/contact.png')}}" alt=""
-                                class="img-fluid">
+                            <img src="{{ url_for('main.static', filename='images/contact.png')}}" alt="" class="img-fluid" />
                         </div>
                         <div class="pt-3 mt-4 flex items-center justify-between">
                             {% for i in contacts %}
@@ -159,7 +162,10 @@
             <div class="pt-20">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6509157.364974411!2d-123.79641389801948!3d37.193115265681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb9fe5f285e3d%3A0x8b5109a227086f55!2sCalifornia%2C%20USA!5e0!3m2!1sen!2sin!4v1628684675253!5m2!1sen!2sin"
-                    height="350" style="border:0;width: 100%;" allowfullscreen="" loading="lazy"></iframe>
+                    height="350"
+                    style="border: 0; width: 100%"
+                    allowfullscreen=""
+                    loading="lazy"></iframe>
             </div>
         </section>
     </div>

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}careerpilot - job information{% endblock %}
+{% block title %}careerpilot - {{job.title}}{% endblock %}
 {% block content%}
 
 <div class="fixed z-40 flex flex-col gap-3 ltr:left-0 rtl:right-0 top-[330px]">
@@ -91,10 +91,10 @@
                     <div class="col-span-12 lg:col-span-8">
                         <div class="border rounded-md border-gray-100/30 dark:border-neutral-600/80">
                             <div class="relative">
-                                <img src="{{ url_for('main.static', filename='images/job-detail.jpg')}}" alt=""
+                                <img src="{{ url_for('profile.static', filename='uploads/'+job.cover)}}" alt=""
                                     class="rounded-md img-fluid mb-7">
                                 <div class="absolute z-20 -bottom-7 left-7">
-                                    <img src="{{ url_for('main.static', filename='images/featured-job/img-10.png')}}"
+                                    <img src="{{ url_for('profile.static', filename='uploads/'+job.company.avatar)}}"
                                         alt="" class="rounded-md img-fluid">
                                 </div>
                             </div>
@@ -102,13 +102,7 @@
                                 <div class="grid grid-cols-12">
                                     <div class="col-span-12 lg:col-span-8">
                                         <div class="relative">
-                                            <h5 class="mb-1 text-gray-900 dark:text-gray-50">Product Designer / UI
-                                                Designer</h5>
-                                            <ul class="flex gap-4 text-gray-500 dark:text-gray-300">
-                                                <li>
-                                                    <i class="mdi mdi-account"></i> 8 Vacancy
-                                                </li>
-                                            </ul>
+                                            <h5 class="mb-1 text-gray-900 dark:text-gray-50 capitalize">{{job.title}}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -116,26 +110,26 @@
                                 <div class="grid grid-cols-12 mt-8 gap-y-3 lg:gap-3">
                                     <div class="col-span-12 lg:col-span-3">
                                         <div class="p-4 border rounded border-gray-100/50 dark:border-neutral-600/80">
-                                            <p class="mb-1 text-gray-500 dark:text-gray-300 text-13">Experience</p>
-                                            <p class="font-medium text-gray-900 dark:text-gray-50">Minimum 1 Year</p>
+                                            <p class="mb-1 text-gray-500 dark:text-gray-300 text-13">Category</p>
+                                            <p class="font-medium text-gray-900 dark:text-gray-50">{{job.category}}</p>
                                         </div>
                                     </div>
                                     <div class="col-span-12 lg:col-span-3">
                                         <div class="p-4 border rounded border-gray-100/50 dark:border-neutral-600/80">
                                             <p class="mb-1 text-gray-500 dark:text-gray-300 text-13">Employee type</p>
-                                            <p class="font-medium text-gray-900 dark:text-gray-50">Full Time</p>
+                                            <p class="font-medium text-gray-900 dark:text-gray-50 capitalize">{{job.job_type}}</p>
                                         </div>
                                     </div>
                                     <div class="col-span-12 lg:col-span-3">
                                         <div class="p-4 border rounded border-gray-100/50 dark:border-neutral-600/80">
                                             <p class="mb-1 text-gray-500 dark:text-gray-300 text-13">Position</p>
-                                            <p class="font-medium text-gray-900 dark:text-gray-50">Senior</p>
+                                            <p class="font-medium text-gray-900 dark:text-gray-50 capitalize">{{job.position}}</p>
                                         </div>
                                     </div>
                                     <div class="col-span-12 lg:col-span-3">
                                         <div class="p-4 border rounded border-gray-100/50 dark:border-neutral-600/80">
                                             <p class="mb-1 text-gray-500 dark:text-gray-300 text-13">Offer Salary</p>
-                                            <p class="font-medium text-gray-900 dark:text-gray-50">$2150/ Month</p>
+                                            <p class="font-medium text-gray-900 dark:text-gray-50">ksh{{job.salary}}/ Month</p>
                                         </div>
                                     </div>
                                 </div>
@@ -143,39 +137,20 @@
                                 <div class="mt-5">
                                     <h5 class="mb-3 text-gray-900 dark:text-gray-50">Job Description</h5>
                                     <div>
-                                        <p class="mb-0 text-gray-500 dark:text-gray-300">As a Product Designer, you will
-                                            work within a Product Delivery Team fused with UX, engineering, product and
-                                            data talent. You will help the team design beautiful interfaces that solve
-                                            business challenges for our clients. We work with a number of Tier 1 banks
-                                            on building web-based applications for AML, KYC and Sanctions List
-                                            management workflows. This role is ideal if you are looking to segue your
-                                            career into the FinTech or Big Data arenas.</p>
+                                        <p class="mb-0 text-gray-500 dark:text-gray-300">{{job.description}}</p>
                                     </div>
                                 </div>
 
                                 <div class="mt-5">
                                     <h5 class="mb-3 text-gray-900 dark:text-gray-50">Responsibilities</h5>
                                     <div>
-                                        <p class="mb-3 text-gray-500 dark:text-gray-300">As a Product Designer, you will
-                                            work within a Product Delivery Team fused with UX, engineering, product and
-                                            data talent.</p>
-
                                         <ul class="mb-0 text-gray-500 dark:text-gray-300">
-                                            <li class="mb-2 text-gray-500 dark:text-gray-300"><i
-                                                    class="mr-2 uil uil-circle"></i> Have sound knowledge of commercial
-                                                activities.</li>
-                                            <li class="mb-2 text-gray-500 dark:text-gray-300"><i
-                                                    class="mr-2 uil uil-circle"></i> Build next-generation web
-                                                applications with a focus on the client side</li>
-                                            <li class="mb-2 text-gray-500 dark:text-gray-300"><i
-                                                    class="mr-2 uil uil-circle"></i> Work on multiple projects at once,
-                                                and consistently meet draft deadlines</li>
-                                            <li class="mb-2 text-gray-500 dark:text-gray-300"><i
-                                                    class="mr-2 uil uil-circle"></i> have already graduated or are
-                                                currently in any year of study</li>
-                                            <li class="text-gray-500 dark:text-gray-300"><i
-                                                    class="mr-2 uil uil-circle"></i> Revise the work of previous
-                                                designers to create a unified aesthetic for our brand materials</li>
+                                            {% for respo in job.responsibilities.split(',') %}
+                                            <li class="mb-2 text-gray-500 dark:text-gray-300">
+                                                <i class="mr-2 uil uil-circle"></i> 
+                                                {{respo}}
+                                            </li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                 </div>
@@ -184,40 +159,26 @@
                                     <h5 class="mb-3 text-gray-900 dark:text-gray-50">Qualification</h5>
                                     <div>
                                         <ul class="mb-0 text-gray-500 dark:text-gray-300">
-                                            <li class="mb-2 text-gray-500 dark:text-gray-300"><i
-                                                    class="mr-2 uil uil-circle"></i> B.C.A / M.C.A under National
-                                                University course complete.</li>
-                                            <li class="mb-2 text-gray-500 dark:text-gray-300"><i
-                                                    class="mr-2 uil uil-circle"></i> 3 or more years of professional
-                                                design experience</li>
-                                            <li class="mb-2 text-gray-500 dark:text-gray-300"><i
-                                                    class="mr-2 uil uil-circle"></i> have already graduated or are
-                                                currently in any year of study </li>
-                                            <li class="mb-2 text-gray-500 dark:text-gray-300"><i
-                                                    class="mr-2 uil uil-circle"></i> Advanced degree or equivalent
-                                                experience in graphic and web design</li>
+                                            {% for ql in job.qualifications.split(',') %}
+                                            <li class="mb-2 text-gray-500 dark:text-gray-300">
+                                                <i class="mr-2 uil uil-circle"></i> 
+                                                {{ql}}
+                                            </li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                 </div>
 
                                 <div class="mt-5">
-                                    <h5 class="mb-3 text-gray-900 dark:text-gray-50">Skill & Experience</h5>
+                                    <h5 class="mb-3 text-gray-900 dark:text-gray-50">Skill & Expertise</h5>
                                     <div>
                                         <ul class="mb-0 text-gray-500 dark:text-gray-300">
+                                            {% for skill in job.skills %}
                                             <li class="mb-2 text-gray-500 dark:text-gray-300"><i
-                                                    class="mr-2 uil uil-circle"></i> Understanding of key Design
-                                                Principal</li>
-                                            <li class="mb-2 text-gray-500 dark:text-gray-300"><i
-                                                    class="mr-2 uil uil-circle"></i> Proficiency With HTML, CSS,
-                                                Tailwind</li>
-                                            <li class="mb-2 text-gray-500 dark:text-gray-300"><i
-                                                    class="mr-2 uil uil-circle"></i> Wordpress: 1 year (Required) </li>
-                                            <li class="mb-2 text-gray-500 dark:text-gray-300"><i
-                                                    class="mr-2 uil uil-circle"></i> Experience designing and developing
-                                                responsive design websites </li>
-                                            <li class="mb-2 text-gray-500 dark:text-gray-300"><i
-                                                    class="mr-2 uil uil-circle"></i> web designing: 1 year (Preferred)
+                                                    class="mr-2 uil uil-circle"></i> 
+                                                {{skill}}
                                             </li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                 </div>
@@ -226,48 +187,45 @@
                         </div>
                         <div class="mt-10 space-y-8">
                             <h5 class="text-gray-900 dark:text-gray-50">Related Jobs</h5>
-                            {% for i in relatedjobs %}
+                            {% for jb in relatedjobs %}
+                            {% if jb.category == job.category %}
+                            {% if jb.id != job.id %}
                             <div
                                 class="relative overflow-hidden transition-all duration-500 ease-in-out bg-white border rounded-md border-gray-100/50 group group-data-[theme-color=violet]:hover:border-violet-500 group-data-[theme-color=sky]:hover:border-sky-500 group-data-[theme-color=red]:hover:border-red-500 group-data-[theme-color=green]:hover:border-green-500 group-data-[theme-color=pink]:hover:border-pink-500 group-data-[theme-color=blue]:hover:border-blue-500 hover:-translate-y-2 dark:bg-neutral-900 dark:border-neutral-600">
                                 <div class="p-6">
                                     <div class="grid grid-cols-12 gap-5">
                                         <div class="col-span-12 lg:col-span-1">
                                             <div class="mb-4 text-center mb-md-0">
-                                                <a href="#"><img
-                                                        src="{{ url_for('main.static', filename='images/featured-job/img-01.png')}}"
+                                                <a href="/companies/{{jb.company.id}}"><img
+                                                        src="{{ url_for('profile.static', filename='uploads/'+jb.company.avatar)}}"
                                                         alt="" class="mx-auto img-fluid rounded-3"></a>
                                             </div>
                                         </div>
                                         <div class="col-span-12 lg:col-span-10">
-                                            <h5 class="mb-1 text-gray-900 fs-17">
-                                                <a href="/jobs/html developer" class="dark:text-gray-50">HTML
-                                                    Developer</a>
-                                                <small class="font-normal text-gray-500 dark:text-gray-300">(0-2 Yrs
-                                                    Exp.)</small>
+                                            <h5 class="mb-1 text-gray-900 fs-17 capitalize">
+                                                <a href="/jobs/{{jb.id}}" class="dark:text-gray-50">{{jb.title}}</a>
                                             </h5>
                                             <ul class="flex flex-wrap gap-3 mb-0">
                                                 <li>
-                                                    <p class="mb-0 text-sm text-gray-500 dark:text-gray-300">Creative
-                                                        Agency</p>
+                                                    <p class="mb-0 text-sm text-gray-500 dark:text-gray-300 capitalize">
+                                                        {{jb.company.name}}
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p class="mb-0 text-sm text-gray-500 dark:text-gray-300 capitalize"><i
+                                                            class="mdi mdi-map-marker"></i> {{jb.company.location}}</p>
                                                 </li>
                                                 <li>
                                                     <p class="mb-0 text-sm text-gray-500 dark:text-gray-300"><i
-                                                            class="mdi mdi-map-marker"></i> New York</p>
-                                                </li>
-                                                <li>
-                                                    <p class="mb-0 text-sm text-gray-500 dark:text-gray-300"><i
-                                                            class="uil uil-wallet"></i> $250 - $800 / month</p>
+                                                            class="uil uil-wallet"></i> ksh.{{jb.salary}} / month</p>
                                                 </li>
                                             </ul>
                                             <div class="mt-4">
                                                 <div class="flex flex-wrap gap-1.5">
                                                     <span
-                                                        class="bg-green-500/20 text-green-500 text-11 px-2 py-0.5 font-medium rounded">Full
-                                                        Time</span>
-                                                    <span
-                                                        class="bg-yellow-500/20 text-yellow-500 text-11 px-2 py-0.5 font-medium rounded">Urgent</span>
-                                                    <span
-                                                        class="bg-sky-500/20 text-sky-500 text-11 px-2 py-0.5 font-medium rounded">Private</span>
+                                                        class="bg-green-500/20 text-green-500 text-11 px-2 py-0.5 font-medium rounded">
+                                                        {{jb.job_type}}
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -277,26 +235,26 @@
                                     <div class="grid grid-cols-12">
                                         <div class="col-span-12 lg:col-span-6">
                                             <ul class="flex flex-wrap gap-2 text-gray-700 dark:text-gray-50">
-                                                <li><i class="uil uil-tag"></i> Keywords :</li>
+                                                <li><i class="uil uil-tag"></i> Category :</li>
                                                 <li><a href="javascript:void(0)"
-                                                        class="text-gray-500 dark:text-gray-50">Ui designer</a>,</li>
-                                                <li><a href="javascript:void(0)"
-                                                        class="text-gray-500 dark:text-gray-50">developer</a></li>
+                                                        class="text-gray-500 dark:text-gray-50">{{jb.category}}</a>
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="col-span-12 mt-2 lg:col-span-6 lg:mt-0">
                                             <div class="ltr:lg:text-end rtl:lg:text-start dark:text-gray-50">
-                                                <a href="/jobs/html developer" data-bs-toggle="modal">View <i
+                                                <a href="/jobs/{{jb.id}}" data-bs-toggle="modal">View <i
                                                         class="mdi mdi-chevron-double-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            {% endif %}
+                            {% endif %}
                             {% endfor %}
-
                             <div class="mt-4 text-center">
-                                <a href="job-list.html" class="font-medium text-gray-900 dark:text-gray-50">View More <i
+                                <a href="/jobs/category/{{job.category}}" class="font-medium text-gray-900 dark:text-gray-50">View More <i
                                         class="mdi mdi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -313,17 +271,7 @@
                                                 class="uil uil-user icon group-data-[theme-color=violet]:bg-violet-500/20 group-data-[theme-color=sky]:bg-sky-500/20 group-data-[theme-color=red]:bg-red-500/20 group-data-[theme-color=green]:bg-green-500/20 group-data-[theme-color=pink]:bg-pink-500/20 group-data-[theme-color=blue]:bg-blue-500/20 h-12 w-12 text-center leading-[2.4] text-xl group-data-[theme-color=violet]:text-violet-500 group-data-[theme-color=sky]:text-sky-500 group-data-[theme-color=red]:text-red-500 group-data-[theme-color=green]:text-green-500 group-data-[theme-color=pink]:text-pink-500 group-data-[theme-color=blue]:text-blue-500 rounded-full"></i>
                                             <div class="ltr:ml-4 rtl:mr-4">
                                                 <h6 class="mb-2 text-sm text-gray-900 dark:text-gray-50">Job Title</h6>
-                                                <p class="text-gray-500 dark:text-gray-300">Product Designer</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="flex mt-6">
-                                            <i
-                                                class="uil uil-star-half-alt icon group-data-[theme-color=violet]:bg-violet-500/20 group-data-[theme-color=sky]:bg-sky-500/20 group-data-[theme-color=red]:bg-red-500/20 group-data-[theme-color=green]:bg-green-500/20 group-data-[theme-color=pink]:bg-pink-500/20 group-data-[theme-color=blue]:bg-blue-500/20 h-12 w-12 text-center leading-[2.4] text-xl group-data-[theme-color=violet]:text-violet-500 group-data-[theme-color=sky]:text-sky-500 group-data-[theme-color=red]:text-red-500 group-data-[theme-color=green]:text-green-500 group-data-[theme-color=pink]:text-pink-500 group-data-[theme-color=blue]:text-blue-500 rounded-full"></i>
-                                            <div class="ltr:ml-4 rtl:mr-4">
-                                                <h6 class="mb-2 text-sm text-gray-900 dark:text-gray-50">Experience</h6>
-                                                <p class="text-gray-500 dark:text-gray-300"> 0-3 Years</p>
+                                                <p class="text-gray-500 dark:text-gray-300 capitalize">{{job.title}}</p>
                                             </div>
                                         </div>
                                     </li>
@@ -333,7 +281,7 @@
                                                 class="uil uil-location-point icon group-data-[theme-color=violet]:bg-violet-500/20 group-data-[theme-color=sky]:bg-sky-500/20 group-data-[theme-color=red]:bg-red-500/20 group-data-[theme-color=green]:bg-green-500/20 group-data-[theme-color=pink]:bg-pink-500/20 group-data-[theme-color=blue]:bg-blue-500/20 h-12 w-12 text-center leading-[2.4] text-xl group-data-[theme-color=violet]:text-violet-500 group-data-[theme-color=sky]:text-sky-500 group-data-[theme-color=red]:text-red-500 group-data-[theme-color=green]:text-green-500 group-data-[theme-color=pink]:text-pink-500 group-data-[theme-color=blue]:text-blue-500 rounded-full"></i>
                                             <div class="ltr:ml-4 rtl:mr-4">
                                                 <h6 class="mb-2 text-sm text-gray-900 dark:text-gray-50">Location</h6>
-                                                <p class="text-gray-500 dark:text-gray-300"> New york</p>
+                                                <p class="text-gray-500 dark:text-gray-300"> {{job.company.location}}</p>
                                             </div>
                                         </div>
                                     </li>
@@ -344,7 +292,7 @@
                                             <div class="ltr:ml-4 rtl:mr-4">
                                                 <h6 class="mb-2 text-sm text-gray-900 dark:text-gray-50">Offered Salary
                                                 </h6>
-                                                <p class="text-gray-500 dark:text-gray-300">$35k - $45k</p>
+                                                <p class="text-gray-500 dark:text-gray-300">ksh{{job.salary}}</p>
                                             </div>
                                         </div>
                                     </li>
@@ -353,19 +301,9 @@
                                             <i
                                                 class="uil uil-graduation-cap icon group-data-[theme-color=violet]:bg-violet-500/20 group-data-[theme-color=sky]:bg-sky-500/20 group-data-[theme-color=red]:bg-red-500/20 group-data-[theme-color=green]:bg-green-500/20 group-data-[theme-color=pink]:bg-pink-500/20 group-data-[theme-color=blue]:bg-blue-500/20 h-12 w-12 text-center leading-[2.4] text-xl group-data-[theme-color=violet]:text-violet-500 group-data-[theme-color=sky]:text-sky-500 group-data-[theme-color=red]:text-red-500 group-data-[theme-color=green]:text-green-500 group-data-[theme-color=pink]:text-pink-500 group-data-[theme-color=blue]:text-blue-500 rounded-full"></i>
                                             <div class="ltr:ml-4 rtl:mr-4">
-                                                <h6 class="mb-2 text-sm text-gray-900 dark:text-gray-50">Qualification
+                                                <h6 class="mb-2 text-sm text-gray-900 dark:text-gray-50">Category
                                                 </h6>
-                                                <p class="text-gray-500 dark:text-gray-300">Bachelor Degree</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="flex mt-6">
-                                            <i
-                                                class="uil uil-building icon group-data-[theme-color=violet]:bg-violet-500/20 group-data-[theme-color=sky]:bg-sky-500/20 group-data-[theme-color=red]:bg-red-500/20 group-data-[theme-color=green]:bg-green-500/20 group-data-[theme-color=pink]:bg-pink-500/20 group-data-[theme-color=blue]:bg-blue-500/20 h-12 w-12 text-center leading-[2.4] text-xl group-data-[theme-color=violet]:text-violet-500 group-data-[theme-color=sky]:text-sky-500 group-data-[theme-color=red]:text-red-500 group-data-[theme-color=green]:text-green-500 group-data-[theme-color=pink]:text-pink-500 group-data-[theme-color=blue]:text-blue-500 rounded-full"></i>
-                                            <div class="ltr:ml-4 rtl:mr-4">
-                                                <h6 class="mb-2 text-sm text-gray-900 dark:text-gray-50">Industry</h6>
-                                                <p class="text-gray-500 dark:text-gray-300">Private</p>
+                                                <p class="text-gray-500 dark:text-gray-300">{{job.category}}</p>
                                             </div>
                                         </div>
                                     </li>
@@ -376,7 +314,7 @@
                                             <div class="ltr:ml-4 rtl:mr-4">
                                                 <h6 class="mb-2 text-sm text-gray-900 dark:text-gray-50">Date Posted
                                                 </h6>
-                                                <p class="text-gray-500 dark:text-gray-300">Posted 2 hrs ago</p>
+                                                <p class="text-gray-500 dark:text-gray-300">Posted {{job.created_at}}</p>
                                             </div>
                                         </div>
                                     </li>
@@ -392,12 +330,11 @@
                         <div class="border rounded border-gray-100/30 dark:border-neutral-600/80">
                             <div class="p-6">
                                 <div>
-                                    <img src="assets/images/featured-job/img-02.png" alt="" class="mx-auto img-fluid">
+                                    <img src="{{ url_for('profile.static', filename='uploads/'+job.company.avatar)}}" alt="" class="mx-auto img-fluid">
 
                                     <div class="mt-4 text-center">
-                                        <h6 class="text-gray-900 text-17 dark:text-gray-50">Jobcy Technology Pvt.Ltd
-                                        </h6>
-                                        <p class="text-gray-500 dark:text-gray-300">Since July 2017</p>
+                                        <h6 class="text-gray-900 text-17 dark:text-gray-50 capitalize">{{job.company.name}}</h6>
+                                        <p class="text-gray-500 dark:text-gray-300">Since {{job.company.dateFounded.strftime('%b %Y')}}</p>
                                     </div>
 
                                     <ul class="mt-4 space-y-4">
@@ -407,7 +344,7 @@
                                                     class="text-xl uil uil-phone-volume group-data-[theme-color=violet]:text-violet-500 group-data-[theme-color=sky]:text-sky-500 group-data-[theme-color=red]:text-red-500 group-data-[theme-color=green]:text-green-500 group-data-[theme-color=pink]:text-pink-500 group-data-[theme-color=blue]:text-blue-500"></i>
                                                 <div class="ltr:ml-3 rtl:mr-3">
                                                     <h6 class="mb-1 text-sm text-gray-900 dark:text-gray-50">Phone</h6>
-                                                    <p class="text-sm text-gray-500 dark:text-gray-300">+589 560 56555
+                                                    <p class="text-sm text-gray-500 dark:text-gray-300">{{job.company.phone}}
                                                     </p>
                                                 </div>
                                             </div>
@@ -419,7 +356,8 @@
                                                 <div class="ltr:ml-3 rtl:mr-3">
                                                     <h6 class="mb-1 text-sm text-gray-900 dark:text-gray-50">Email</h6>
                                                     <p class="text-sm text-gray-500 dark:text-gray-300">
-                                                        pixltechnology@info.com</p>
+                                                        {{job.company.email}}
+                                                    </p>
                                                 </div>
                                             </div>
                                         </li>
@@ -430,8 +368,7 @@
                                                 <div class="ltr:ml-3 rtl:mr-3">
                                                     <h6 class="mb-1 text-sm text-gray-900 dark:text-gray-50">Website
                                                     </h6>
-                                                    <p class="mb-0 text-gray-500 dark:text-gray-300 fs-14 text-break">
-                                                        www.Jobcytechnology.pvt.ltd.com</p>
+                                                    <p class="mb-0 text-gray-500 dark:text-gray-300 fs-14 text-break">{{job.company.website}}</p>
                                                 </div>
                                             </div>
                                         </li>
@@ -442,26 +379,24 @@
                                                 <div class="ltr:ml-3 rtl:mr-3">
                                                     <h6 class="mb-1 text-sm text-gray-900 dark:text-gray-50">Location
                                                     </h6>
-                                                    <p class="text-sm text-gray-500 dark:text-gray-300">Oakridge Lane
-                                                        Richardson.</p>
+                                                    <p class="text-sm text-gray-500 dark:text-gray-300">{{job.company.location}}</p>
                                                 </div>
                                             </div>
                                         </li>
                                     </ul>
-
                                     <div class="mt-6">
-                                        <a href=""
+                                        <a href="/jobs/companies/{{job.company.id}}"
+                                            class="w-full text-white capitalize border-transparent btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500">
+                                            {{job.company.name}}'s jobs
+                                        </a>
+                                    </div>
+                                    <div class="mt-6">
+                                        <a href="/companies/{{job.company.id}}"
                                             class="w-full text-white border-transparent btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500"><i
                                                 class="mdi mdi-eye"></i> View Profile</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="mt-4">
-                            <h6 class="mb-3 text-16 dark:text-gray-50">Job location</h6>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.119763973046!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1628067715234!5m2!1sen!2sin"
-                                style="width:100%" height="250" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>

@@ -90,22 +90,31 @@
             <div class="container mx-auto">
                 <div class="mt-8">
                     <div class="grid grid-cols-12 gap-8">
-                        {% for i in companies %}
+                        {% for company in companies %}
                         <div class="col-span-12 lg:col-span-4">
                             <div
                                 class="relative px-6 py-12 border rounded-md border-gray-100/50 dark:border-neutral-600">
-                                <img src="{{ url_for('main.static', filename='images/featured-job/img-09.png')}}" alt=""
+                                <img src="{{ url_for('profile.static', filename='uploads/'+company.avatar)}}" alt=""
                                     class="mx-auto">
                                 <div class="mt-5 text-center">
-                                    <a href="/companies/name">
-                                        <h6 class="mb-3 text-lg text-gray-900 dark:text-white">Jobcy Consulting</h6>
+                                    <a href="/companies/{{company.id}}">
+                                        <h6 class="mb-3 text-lg text-gray-900 dark:text-white uppercase">{{company.name}}</h6>
                                     </a>
-                                    <p class="mb-6 text-gray-500 dark:text-gray-300">New York</p>
-
-                                    <div
-                                        class="text-white border-transparent btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 focus:ring focus:ring-custom-500/30">
-                                        52
-                                        Opening Jobs</div>
+                                    <p class="mb-6 text-gray-500 dark:text-gray-300">{{company.location}}</p>
+                                    {% if company.jobs %}
+                                    <a href="/jobs/companies/{{company.id}}">
+                                        <div
+                                            class="text-white border-transparent btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 focus:ring focus:ring-custom-500/30">
+                                            {{company.jobs|length}} Open Jobs
+                                        </div>
+                                    </a>
+                                    {% else %}
+                                        <div
+                                            class="text-white border-transparent btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 focus:ring focus:ring-custom-500/30">
+                                            No Jobs
+                                        </div>
+                                    {% endif %}
+                                    
                                 </div>
                             </div>
                         </div>

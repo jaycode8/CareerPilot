@@ -1,71 +1,161 @@
-<nav class="navbar fixed right-0 left-0 top-0 lg:top-[44.5px] px-5 lg:px-24 transition-all duration-500 ease shadow-lg shadow-gray-200/20 bg-white border-gray-200 dark:bg-neutral-800 z-40 dark:shadow-neutral-900"
+<nav
+    class="navbar fixed right-0 left-0 top-0 lg:top-[44.5px] px-5 lg:px-24 transition-all duration-500 ease shadow-lg shadow-gray-200/20 bg-white border-gray-200 dark:bg-neutral-800 z-40 dark:shadow-neutral-900"
     id="navbar">
     <div class="mx-auto container-fluid">
         <div class="flex flex-wrap items-center justify-between mx-auto">
             <a href="/" class="flex items-center">
-                <img src="{{ url_for('main.static', filename='images/logo-dark.png')}}" alt=""
-                    class="logo-dark h-[22px] block dark:hidden">
-                <img src="{{ url_for('main.static', filename='images/logo-light.png')}}" alt=""
-                    class="logo-dark h-[22px] hidden dark:block">
+                <img
+                    src="{{ url_for('main.static', filename='images/logo.png')}}"
+                    alt=""
+                    class="logo-dark block"
+                    style="width: 55px" />
             </a>
             <div class="flex items-center lg:order-2 py-5">
                 <div>
-                    <a href="/forms">Sign in</a>
-                    <div class="relative dropdown ltr:mr-4 rtl:ml-4 hidden">
-                        <button type="button" class="flex items-center px-4 py-5 dropdown-toggle"
-                            id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                    {% if 'user' in request.cookies %}
+                    <div class="relative dropdown ltr:mr-4 rtl:ml-4">
+                        <button
+                            type="button"
+                            class="flex items-center px-4 py-0 dropdown-toggle"
+                            id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown"
+                            aria-haspopup="true"
                             aria-expanded="true">
-                            <img class="w-8 h-8 rounded-full ltr:xl:mr-2 rtl:xl:ml-2"
-                                src="{{ url_for('main.static', filename='images/user/img-02.jpg')}}"
-                                alt="Header Avatar">
-                            <span class="hidden fw-medium xl:block dark:text-gray-50">Shawn L.</span>
+                            {% if current_user.profile != '' %}
+                            <img
+                                class="w-8 h-8 rounded-full ltr:xl:mr-2 rtl:xl:ml-2"
+                                src="{{ url_for('profile.static', filename='uploads/'+current_user.profile_pic)}}"
+                                alt="Header Avatar" />
+                            {% else %}
+                            <img
+                                class="w-8 h-8 rounded-full ltr:xl:mr-2 rtl:xl:ml-2"
+                                src="{{ url_for('profile.static', filename='img/avatar.jpeg')}}"
+                                alt="Header Avatar" />
+                            {% endif %}
+                            <span
+                                class="hidden fw-medium xl:block dark:text-gray-50"
+                                >{{current_user.username}}</span
+                            >
                         </button>
-                        <ul class="absolute top-auto z-50 hidden w-48 p-3 list-none bg-white border rounded shadow-lg dropdown-menu border-gray-500/20 xl:ltr:-left-3 ltr:-left-32 rtl:-right-3 dark:bg-neutral-800"
-                            id="profile/log" aria-labelledby="navNotifications">
-                            <li class="p-2 dropdown-item group/dropdown dark:text-gray-300">
-                                <a class="text-15 font-medium text-gray-800  group-data-[theme-color=violet]:group-hover/dropdown:text-violet-500 group-data-[theme-color=sky]:group-hover/dropdown:text-sky-500 group-data-[theme-color=red]:group-hover/dropdown:text-red-500 group-data-[theme-color=green]:group-hover/dropdown:text-green-500 group-data-[theme-color=pink]:group-hover/dropdown:text-pink-500 group-data-[theme-color=blue]:group-hover/dropdown:text-blue-500 group-hover:pl-1.5 transition-all duration-300 ease-in dark:text-gray-50"
-                                    href="manage-jobs.html">Manage Jobs</a>
+                        <ul
+                            class="absolute top-auto z-50 hidden w-48 p-3 list-none bg-white border rounded shadow-lg dropdown-menu border-gray-500/20 xl:ltr:-left-3 ltr:-left-32 rtl:-right-3 dark:bg-neutral-800"
+                            id="profile/log"
+                            aria-labelledby="navNotifications">
+                            {% if request.cookies.account_type == 'company' %}
+                            <li
+                                class="p-2 dropdown-item group/dropdown dark:text-gray-300">
+                                <a
+                                    class="text-15 font-medium text-gray-800 group-data-[theme-color=violet]:group-hover/dropdown:text-violet-500 group-data-[theme-color=sky]:group-hover/dropdown:text-sky-500 group-data-[theme-color=red]:group-hover/dropdown:text-red-500 group-data-[theme-color=green]:group-hover/dropdown:text-green-500 group-data-[theme-color=pink]:group-hover/dropdown:text-pink-500 group-data-[theme-color=blue]:group-hover/dropdown:text-blue-500 group-hover:pl-1.5 transition-all duration-300 ease-in dark:text-gray-50"
+                                    href="/profile/company"
+                                    >Company Dashboard</a
+                                >
                             </li>
-                            <li class="p-2 dropdown-item group/dropdown dark:text-gray-300">
-                                <a class="text-15 font-medium text-gray-800 group-data-[theme-color=violet]:group-hover/dropdown:text-violet-500 group-data-[theme-color=sky]:group-hover/dropdown:text-sky-500 group-data-[theme-color=red]:group-hover/dropdown:text-red-500 group-data-[theme-color=green]:group-hover/dropdown:text-green-500 group-data-[theme-color=pink]:group-hover/dropdown:text-pink-500 group-data-[theme-color=blue]:group-hover/dropdown:text-blue-500 group-hover:pl-1.5 transition-all duration-300 ease-in dark:text-gray-50"
-                                    href="bookmark-jobs.html">Bookmarks Jobs</a>
+                            {% else %}
+                            <li
+                                class="p-2 dropdown-item group/dropdown dark:text-gray-300">
+                                <a
+                                    class="text-15 font-medium text-gray-800 group-data-[theme-color=violet]:group-hover/dropdown:text-violet-500 group-data-[theme-color=sky]:group-hover/dropdown:text-sky-500 group-data-[theme-color=red]:group-hover/dropdown:text-red-500 group-data-[theme-color=green]:group-hover/dropdown:text-green-500 group-data-[theme-color=pink]:group-hover/dropdown:text-pink-500 group-data-[theme-color=blue]:group-hover/dropdown:text-blue-500 group-hover:pl-1.5 transition-all duration-300 ease-in dark:text-gray-50"
+                                    href="bookmark-jobs.html"
+                                    >Bookmarks Jobs</a
+                                >
                             </li>
-                            <li class="p-2 dropdown-item group/dropdown dark:text-gray-300">
-                                <a class="text-15 font-medium text-gray-800 group-data-[theme-color=violet]:group-hover/dropdown:text-violet-500 group-data-[theme-color=sky]:group-hover/dropdown:text-sky-500 group-data-[theme-color=red]:group-hover/dropdown:text-red-500 group-data-[theme-color=green]:group-hover/dropdown:text-green-500 group-data-[theme-color=pink]:group-hover/dropdown:text-pink-500 group-data-[theme-color=blue]:group-hover/dropdown:text-blue-500 group-hover:pl-1.5 transition-all duration-300 ease-in dark:text-gray-50"
-                                    href="/profile">My Profile</a>
+                            <li
+                                class="p-2 dropdown-item group/dropdown dark:text-gray-300">
+                                <a
+                                    class="text-15 font-medium text-gray-800 group-data-[theme-color=violet]:group-hover/dropdown:text-violet-500 group-data-[theme-color=sky]:group-hover/dropdown:text-sky-500 group-data-[theme-color=red]:group-hover/dropdown:text-red-500 group-data-[theme-color=green]:group-hover/dropdown:text-green-500 group-data-[theme-color=pink]:group-hover/dropdown:text-pink-500 group-data-[theme-color=blue]:group-hover/dropdown:text-blue-500 group-hover:pl-1.5 transition-all duration-300 ease-in dark:text-gray-50"
+                                    href="/profile"
+                                    >My Profile</a
+                                >
                             </li>
-                            <li class="p-2 dropdown-item group/dropdown dark:text-gray-300">
-                                <a class="text-15 font-medium text-gray-800 group-data-[theme-color=violet]:group-hover/dropdown:text-violet-500 group-data-[theme-color=sky]:group-hover/dropdown:text-sky-500 group-data-[theme-color=red]:group-hover/dropdown:text-red-500 group-data-[theme-color=green]:group-hover/dropdown:text-green-500 group-data-[theme-color=pink]:group-hover/dropdown:text-pink-500 group-data-[theme-color=blue]:group-hover/dropdown:text-blue-500 group-hover:pl-1.5 transition-all duration-300 ease-in dark:text-gray-50"
-                                    href="sign-out.html">Logout</a>
+                            {% endif %}
+                            <li
+                                class="p-2 dropdown-item group/dropdown dark:text-gray-300">
+                                <a
+                                    class="text-15 font-medium text-gray-800 group-data-[theme-color=violet]:group-hover/dropdown:text-violet-500 group-data-[theme-color=sky]:group-hover/dropdown:text-sky-500 group-data-[theme-color=red]:group-hover/dropdown:text-red-500 group-data-[theme-color=green]:group-hover/dropdown:text-green-500 group-data-[theme-color=pink]:group-hover/dropdown:text-pink-500 group-data-[theme-color=blue]:group-hover/dropdown:text-blue-500 group-hover:pl-1.5 transition-all duration-300 ease-in dark:text-gray-50"
+                                    href="/forms/logout"
+                                    >Logout</a
+                                >
                             </li>
                         </ul>
                     </div>
+                    {% else %}
+                    <!-- <a href="/forms">Sign in</a> -->
+                    <div class="relative dropdown ltr:mr-4 rtl:ml-4">
+                        <button
+                            type="button"
+                            class="flex items-center px-4 py-0 dropdown-toggle text-gray-800"
+                            id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="true">
+                            Sign in as a
+                        </button>
+                        <ul
+                            class="absolute top-auto z-50 hidden w-48 p-3 list-none bg-white border rounded shadow-lg dropdown-menu border-gray-500/20 xl:ltr:-left-3 ltr:-left-32 rtl:-right-3 dark:bg-neutral-800"
+                            id="profile/log"
+                            aria-labelledby="navNotifications">
+                            <li
+                                class="p-2 dropdown-item group/dropdown dark:text-gray-300">
+                                <a
+                                    class="text-15 font-medium text-gray-800 group-data-[theme-color=violet]:group-hover/dropdown:text-violet-500 group-data-[theme-color=sky]:group-hover/dropdown:text-sky-500 group-data-[theme-color=red]:group-hover/dropdown:text-red-500 group-data-[theme-color=green]:group-hover/dropdown:text-green-500 group-data-[theme-color=pink]:group-hover/dropdown:text-pink-500 group-data-[theme-color=blue]:group-hover/dropdown:text-blue-500 group-hover:pl-1.5 transition-all duration-300 ease-in dark:text-gray-50"
+                                    href="/forms"
+                                    >Job Seaker</a
+                                >
+                            </li>
+                            <li
+                                class="p-2 dropdown-item group/dropdown dark:text-gray-300">
+                                <a
+                                    class="text-15 font-medium text-gray-800 group-data-[theme-color=violet]:group-hover/dropdown:text-violet-500 group-data-[theme-color=sky]:group-hover/dropdown:text-sky-500 group-data-[theme-color=red]:group-hover/dropdown:text-red-500 group-data-[theme-color=green]:group-hover/dropdown:text-green-500 group-data-[theme-color=pink]:group-hover/dropdown:text-pink-500 group-data-[theme-color=blue]:group-hover/dropdown:text-blue-500 group-hover:pl-1.5 transition-all duration-300 ease-in dark:text-gray-50"
+                                    href="/forms/signincompany"
+                                    >Company</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
 
-            <div id="navbar-collapse"
+            <div
+                id="navbar-collapse"
                 class="navbar-res items-center justify-between w-full text-sm lg:flex lg:w-auto lg:order-1 group-focus:[.navbar-toggler]:block hidden">
-                <ul class="flex flex-col items-start mt-5 mb-10 font-medium lg:mt-0 lg:mb-0 lg:items-center lg:flex-row"
+                <ul
+                    class="flex flex-col items-start mt-5 mb-10 font-medium lg:mt-0 lg:mb-0 lg:items-center lg:flex-row"
                     id="navigation-menu">
                     <li>
-                        <a class="block w-full px-4 py-2 text-13 font-medium text-gray-700 duration-300 bg-transparent whitespace-nowrap group-data-[theme-color=violet]:hover:text-violet-500 group-data-[theme-color=sky]:hover:text-sky-500 group-data-[theme-color=red]:hover:text-red-500 group-data-[theme-color=green]:hover:text-green-500 group-data-[theme-color=pink]:hover:text-pink-500 group-data-[theme-color=blue]:hover:text-blue-500 uppercase group-data-[mode=dark]:text-gray-50"
-                            href="/">Home</a>
+                        <a
+                            class="block w-full px-4 py-2 text-13 font-medium text-gray-700 duration-300 bg-transparent whitespace-nowrap group-data-[theme-color=violet]:hover:text-violet-500 group-data-[theme-color=sky]:hover:text-sky-500 group-data-[theme-color=red]:hover:text-red-500 group-data-[theme-color=green]:hover:text-green-500 group-data-[theme-color=pink]:hover:text-pink-500 group-data-[theme-color=blue]:hover:text-blue-500 uppercase group-data-[mode=dark]:text-gray-50"
+                            href="/"
+                            >Home</a
+                        >
                     </li>
                     <li>
-                        <a class="block w-full px-4 py-2 text-13 font-medium text-gray-700 duration-300 bg-transparent whitespace-nowrap group-data-[theme-color=violet]:hover:text-violet-500 group-data-[theme-color=sky]:hover:text-sky-500 group-data-[theme-color=red]:hover:text-red-500 group-data-[theme-color=green]:hover:text-green-500 group-data-[theme-color=pink]:hover:text-pink-500 group-data-[theme-color=blue]:hover:text-blue-500 uppercase group-data-[mode=dark]:text-gray-50"
-                            href="/aboutus">About Us</a>
+                        <a
+                            class="block w-full px-4 py-2 text-13 font-medium text-gray-700 duration-300 bg-transparent whitespace-nowrap group-data-[theme-color=violet]:hover:text-violet-500 group-data-[theme-color=sky]:hover:text-sky-500 group-data-[theme-color=red]:hover:text-red-500 group-data-[theme-color=green]:hover:text-green-500 group-data-[theme-color=pink]:hover:text-pink-500 group-data-[theme-color=blue]:hover:text-blue-500 uppercase group-data-[mode=dark]:text-gray-50"
+                            href="/aboutus"
+                            >About Us</a
+                        >
                     </li>
                     <li>
-                        <a class="block w-full px-4 py-2 text-13 font-medium text-gray-700 duration-300 bg-transparent whitespace-nowrap group-data-[theme-color=violet]:hover:text-violet-500 group-data-[theme-color=sky]:hover:text-sky-500 group-data-[theme-color=red]:hover:text-red-500 group-data-[theme-color=green]:hover:text-green-500 group-data-[theme-color=pink]:hover:text-pink-500 group-data-[theme-color=blue]:hover:text-blue-500 uppercase group-data-[mode=dark]:text-gray-50"
-                            href="/companies">Companies</a>
+                        <a
+                            class="block w-full px-4 py-2 text-13 font-medium text-gray-700 duration-300 bg-transparent whitespace-nowrap group-data-[theme-color=violet]:hover:text-violet-500 group-data-[theme-color=sky]:hover:text-sky-500 group-data-[theme-color=red]:hover:text-red-500 group-data-[theme-color=green]:hover:text-green-500 group-data-[theme-color=pink]:hover:text-pink-500 group-data-[theme-color=blue]:hover:text-blue-500 uppercase group-data-[mode=dark]:text-gray-50"
+                            href="/companies"
+                            >Companies</a
+                        >
                     </li>
                     <li>
-                        <a class="block w-full px-4 py-2 text-13 font-medium text-gray-700 duration-300 bg-transparent whitespace-nowrap group-data-[theme-color=violet]:hover:text-violet-500 group-data-[theme-color=sky]:hover:text-sky-500 group-data-[theme-color=red]:hover:text-red-500 group-data-[theme-color=green]:hover:text-green-500 group-data-[theme-color=pink]:hover:text-pink-500 group-data-[theme-color=blue]:hover:text-blue-500 uppercase group-data-[mode=dark]:text-gray-50"
-                            href="/jobs">Jobs</a>
+                        <a
+                            class="block w-full px-4 py-2 text-13 font-medium text-gray-700 duration-300 bg-transparent whitespace-nowrap group-data-[theme-color=violet]:hover:text-violet-500 group-data-[theme-color=sky]:hover:text-sky-500 group-data-[theme-color=red]:hover:text-red-500 group-data-[theme-color=green]:hover:text-green-500 group-data-[theme-color=pink]:hover:text-pink-500 group-data-[theme-color=blue]:hover:text-blue-500 uppercase group-data-[mode=dark]:text-gray-50"
+                            href="/jobs"
+                            >Jobs</a
+                        >
                     </li>
                     <li>
-                        <a class="block w-full px-4 py-2 text-13 font-medium text-gray-700 duration-300 bg-transparent whitespace-nowrap group-data-[theme-color=violet]:hover:text-violet-500 group-data-[theme-color=sky]:hover:text-sky-500 group-data-[theme-color=red]:hover:text-red-500 group-data-[theme-color=green]:hover:text-green-500 group-data-[theme-color=pink]:hover:text-pink-500 group-data-[theme-color=blue]:hover:text-blue-500 uppercase group-data-[mode=dark]:text-gray-50"
-                            href="/contacts">Contact</a>
+                        <a
+                            class="block w-full px-4 py-2 text-13 font-medium text-gray-700 duration-300 bg-transparent whitespace-nowrap group-data-[theme-color=violet]:hover:text-violet-500 group-data-[theme-color=sky]:hover:text-sky-500 group-data-[theme-color=red]:hover:text-red-500 group-data-[theme-color=green]:hover:text-green-500 group-data-[theme-color=pink]:hover:text-pink-500 group-data-[theme-color=blue]:hover:text-blue-500 uppercase group-data-[mode=dark]:text-gray-50"
+                            href="/contacts"
+                            >Contact</a
+                        >
                     </li>
                 </ul>
             </div>

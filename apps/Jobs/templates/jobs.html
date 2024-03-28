@@ -1,47 +1,40 @@
-{% extends 'base.html' %}
-{% block title %}careerpilot - jobs{% endblock %}
-{% block content%}
+{% extends 'base.html' %} {% block title %}careerpilot - jobs{% endblock %} {% block content%}
 <div class="fixed z-40 flex flex-col gap-3 ltr:left-0 rtl:right-0 top-[330px]">
     <!-- light-dark mode button -->
-    <a href="javascript: void(0);" id="ltr-rtl"
+    <a
+        href="javascript: void(0);"
+        id="ltr-rtl"
         class="z-40 px-3 py-3 font-medium text-white transition-all duration-300 ease-linear group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 text-14 hover:bg-violet-700 ltr:rounded-r rtl:rounded-l"
         onclick="changeMode(event)">
         <span class="ltr:hidden">LTR</span>
         <span class="rtl:hidden">RTL</span>
     </a>
-
 </div>
 
 <div class="fixed transition-all duration-300 ease-linear top-[27.5rem] switcher" id="style-switcher">
     <div class="w-48 p-4 bg-white shadow-md">
         <div>
             <h3 class="mb-2 font-semibold text-gray-900 text-16">Select your color</h3>
-            <ul class="flex gap-3 ">
+            <ul class="flex gap-3">
                 <li>
-                    <a class="h-10 w-10 bg-[#815DF2] block rounded-full" data-color="violet"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#815DF2] block rounded-full" data-color="violet" href="javascript: void(0);"></a>
                 </li>
                 <li>
-                    <a class="h-10 w-10 bg-[#69cdf1] block rounded-full" data-color="sky"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#69cdf1] block rounded-full" data-color="sky" href="javascript: void(0);"></a>
                 </li>
                 <li>
-                    <a class="h-10 w-10 bg-[#dd4948] block rounded-full" data-color="red"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#dd4948] block rounded-full" data-color="red" href="javascript: void(0);"></a>
                 </li>
             </ul>
             <ul class="flex gap-3 mt-4">
                 <li>
-                    <a class="h-10 w-10 bg-[#38c284] block rounded-full" data-color="green"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#38c284] block rounded-full" data-color="green" href="javascript: void(0);"></a>
                 </li>
                 <li>
-                    <a class="h-10 w-10 bg-[#e35490] block rounded-full" data-color="pink"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#e35490] block rounded-full" data-color="pink" href="javascript: void(0);"></a>
                 </li>
                 <li>
-                    <a class="h-10 w-10 bg-[#5276f4] block rounded-full" data-color="blue"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#5276f4] block rounded-full" data-color="blue" href="javascript: void(0);"></a>
                 </li>
             </ul>
         </div>
@@ -50,9 +43,7 @@
             <h3 class="mb-2 font-semibold text-gray-900 text-16">Light/dark Layout</h3>
             <div class="flex justify-center mt-2">
                 <!-- light-dark mode button -->
-                <a href="javascript: void(0);" id="mode"
-                    class="z-40 px-6 py-2 font-normal text-white transition-all duration-300 ease-linear rounded text-14 bg-zinc-800"
-                    onclick="changeMode(event)">
+                <a href="javascript: void(0);" id="mode" class="z-40 px-6 py-2 font-normal text-white transition-all duration-300 ease-linear rounded text-14 bg-zinc-800" onclick="changeMode(event)">
                     <i class="hidden text-xl uil uil-brightness dark:text-white dark:inline-block"></i>
                     <i class="inline-block text-xl uil uil-moon dark:text-zinc-800 dark:hidden"></i>
                 </a>
@@ -61,76 +52,107 @@
     </div>
 </div>
 <!-- light-dark mode button -->
-<a href="javascript: void(0);" onclick="toggleSwitcher()"
+<a
+    href="javascript: void(0);"
+    onclick="toggleSwitcher()"
     class="fixed z-40 flex flex-col gap-3 px-4 py-3 font-normal text-white group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 top-96 text-14 ltr:rounded-r rtl:rounded-l">
     <i class="text-xl mdi mdi-cog mdi-spin"></i>
 </a>
 
 <div class="main-content">
     <div class="page-content">
-
         <section
             class="pt-28 lg:pt-44 pb-28 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 dark:bg-neutral-900 bg-[url('../images/home/page-title.png')] bg-center bg-cover relative">
             <div class="container mx-auto">
                 <div class="grid">
                     <div class="col-span-12">
                         <div class="text-center text-white">
-                            <h3 class="mb-4 text-[26px]">Available Jobs</h3>
+                            <h3 class="mb-4 text-[26px] capitalize">{% if category %} {{category}} related jobs {% else %} All Available Jobs {% endif %}</h3>
                         </div>
                     </div>
                 </div>
             </div>
-            <img src="{{ url_for('main.static', filename='images/about/shape.png')}}" alt=""
-                class="absolute block bg-cover -bottom-0 dark:hidden">
-            <img src="{{ url_for('main.static', filename='images/about/shape-dark.png')}}" alt=""
-                class="absolute hidden bg-cover -bottom-0 dark:block">
+            <img src="{{ url_for('main.static', filename='images/about/shape.png')}}" alt="" class="absolute block bg-cover -bottom-0 dark:hidden" />
+            <img src="{{ url_for('main.static', filename='images/about/shape-dark.png')}}" alt="" class="absolute hidden bg-cover -bottom-0 dark:block" />
         </section>
         <section class="py-16">
+            <div class="col-span-12 p-6">
+                <div class="job-list-header">
+                    <form action="#">
+                        <div class="grid grid-cols-12 gap-3">
+                            <div class="col-span-12 xl:col-span-3">
+                                <div class="relative filler-job-form">
+                                    <i class="uil uil-briefcase-alt"></i>
+                                    <input type="search" class="w-full filter-job-input-box dark:text-gray-300" id="exampleFormControlInput1" placeholder="Job, company... " />
+                                </div>
+                            </div>
+                            <div class="col-span-12 xl:col-span-3">
+                                <div class="relative filler-job-form">
+                                    <i class="uil uil-location-point"></i>
+                                    <select class="form-select" data-trigger name="choices-single-location" id="choices-single-location" aria-label="Default select example">
+                                        {% for type in job_types %}
+                                            <option value="{{type}}">{{type}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-span-12 xl:col-span-3">
+                                <div class="relative filler-job-form">
+                                    <i class="uil uil-clipboard-notes"></i>
+                                    <select class="form-select" data-trigger name="choices-single-categories" id="choices-single-categories" aria-label="Default select example">
+                                        {% for category in categories %}
+                                            <option value="{{category}}">{{category}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-span-12 xl:col-span-3">
+                                <a
+                                    href="javascript:void(0)"
+                                    class="w-full text-white border-transparent btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 focus:ring focus:ring-custom-500/30"
+                                    ><i class="uil uil-filter"></i> Fliter</a
+                                >
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div class="container mx-auto">
                 <div class="grid grid-cols-12 gap-8">
-                    {% for i in jobs %}
+                    {% for job in jobs %}
                     <div class="col-span-12 md:col-span-6 lg:col-span-4">
-                        <div
-                            class="relative p-6 transition-all duration-300 ease-in-out border border-gray-100/50 rounded-xl hover:-translate-y-2 dark:border-neutral-600/70">
+                        <div class="relative p-6 transition-all duration-300 ease-in-out border border-gray-100/50 rounded-xl hover:-translate-y-2 dark:border-neutral-600/70">
                             <div>
-                                <a href="/companies/name"><img
-                                        src="{{ url_for('main.static', filename='images/featured-job/img-02.png')}}"
-                                        alt="" class="img-fluid"></a>
+                                <a href="/companies/{{job.company.id}}"><img src="{{ url_for('profile.static', filename='uploads/'+job.company.avatar)}}" alt="" class="img-fluid" /></a>
                             </div>
                             <div class="mt-4">
-                                <a href="Magento Developer"
-                                    class="text-gray-900 transition-all duration-300 hover:bg-violet-500 dark:text-gray-50">
-                                    <h5 class="mb-1 fs-17">Magento Developer</h5>
-                                </a>
-                                <p class="text-gray-500 dark:text-gray-300">Jobcy Technology Pvt.Ltd</p>
+                                <div style="display: flex; align-items: center; justify-content: space-between">
+                                    <a href="/jobs/{{job.id}}" class="text-gray-900 transition-all duration-300 dark:text-gray-50">
+                                        <h5 class="mb-1 fs-17 capitalize">{{job.title}}</h5>
+                                    </a>
+                                    <p class="text-gray-500 dark:text-gray-300 uppercase">{{job.category}}</p>
+                                </div>
+                                <p class="text-gray-500 dark:text-gray-300 uppercase">{{job.company.name}}</p>
                                 <ul class="flex flex-wrap gap-3 mt-4">
                                     <li class="">
-                                        <span
-                                            class="bg-green-500/20 text-13 text-green-500 font-medium px-1.5 py-1 rounded mt-1">$500/
-                                            Month</span>
+                                        <span class="bg-green-500/20 text-13 text-green-500 font-medium px-1.5 py-1 rounded mt-1">ksh{{job.salary}}/ Month</span>
                                     </li>
                                     <li class="">
-                                        <span
-                                            class="bg-violet-500/20 text-13 text-violet-500 font-medium px-1.5 py-1 rounded mt-1">Min.
-                                            1 Year</span>
-                                    </li>
-                                    <li class="">
-                                        <span
-                                            class="bg-sky-500/20 text-13 text-sky-500 font-medium px-1.5 py-1 rounded mt-1">Developer</span>
+                                        <span class="bg-violet-500/20 text-13 text-violet-500 font-medium px-1.5 py-1 rounded mt-1">{{job.job_type}}</span>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="mt-3 ">
-                                <p class="mb-5 text-gray-500 dark:text-gray-300">As a Product Designer, you will work
-                                    within a Product Delivery Team fused with UX, engineering, product and data talent.
-                                </p>
-                                <div
-                                    class="flex items-center justify-between pt-4 border-t border-gray-100/50 dark:border-neutral-600/50">
-                                    <p class="float-left text-gray-500 dark:text-gray-300">2 min ago</p>
+                            <div class="mt-3">
+                                <p class="mb-5 text-gray-500 dark:text-gray-300 hidden">{{job.description}}</p>
+                                <div class="flex items-center justify-between pt-4 border-t border-gray-100/50 dark:border-neutral-600/50">
+                                    <p class="float-left text-gray-500 dark:text-gray-300"> {{job.created_at}}</p>
                                     <div class="text-right">
-                                        <a href="/jobs/name" data-bs-toggle="modal"
-                                            class="btn py-1.5 px-3 text-13 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 border-transparent text-white">Details
-                                            <i class="uil uil-angle-right-b"></i></a>
+                                        <a
+                                            href="/jobs/{{job.id}}"
+                                            data-bs-toggle="modal"
+                                            class="btn py-1.5 px-3 text-13 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 border-transparent text-white"
+                                            >Details <i class="uil uil-angle-right-b"></i
+                                        ></a>
                                     </div>
                                 </div>
                             </div>

@@ -79,12 +79,6 @@
                             <div class="grid flex-col grid-cols-12">
                                 <div class="col-span-6 ltr:rounded-l-lg rtl:rounded-r-lg">
                                     <div class="p-10">
-                                        <a href="/">
-                                            <img src="{{ url_for('main.static', filename='images/logo-light.png')}}"
-                                                alt="" class="hidden mx-auto dark:block">
-                                            <img src="{{ url_for('main.static', filename='images/logo-dark.png')}}"
-                                                alt="" class="block mx-auto dark:hidden">
-                                        </a>
                                         <div class="mt-5">
                                             <img src="{{ url_for('main.static', filename='images/auth/sign-up.png')}}"
                                                 alt="">
@@ -93,30 +87,38 @@
                                 </div>
                                 <div
                                     class="col-span-12 rounded-b-md lg:col-span-6 group-data-[theme-color=violet]:bg-violet-700 group-data-[theme-color=sky]:bg-sky-700 group-data-[theme-color=red]:bg-red-700 group-data-[theme-color=green]:bg-green-700 group-data-[theme-color=pink]:bg-pink-700 group-data-[theme-color=blue]:bg-blue-700 lg:rounded-b-none lg:ltr:rounded-r-lg rtl:rounded-l-lg">
+                                    {% if error %}
+                                        <p>{{error}}</p>
+                                    {% endif %}
                                     <div class="flex flex-col justify-center h-full p-12">
                                         <div class="text-center">
                                             <h5 class="text-[18.5px] text-white">Let's Get Started</h5>
-                                            <p class="mt-3 text-gray-50">Sign Up and get access to all the features of
-                                                Jobcy</p>
+                                            <p class="mt-3 text-gray-50">Sign Up and get access to all the features of careerpilot</p>
                                         </div>
-                                        <form class="mt-8">
+                                        <form class="mt-8" action="/forms/signup-user" method="post">
                                             <div class="mb-5">
                                                 <label for="usernameInput" class="text-white">Username</label>
                                                 <input type="text"
                                                     class="w-full mt-1 group-data-[theme-color=violet]:bg-violet-400/40 group-data-[theme-color=sky]:bg-sky-400/40 group-data-[theme-color=red]:bg-red-400/40 group-data-[theme-color=green]:bg-green-400/40 group-data-[theme-color=pink]:bg-pink-400/40 group-data-[theme-color=blue]:bg-blue-400/40 py-2.5 rounded border-transparent placeholder:text-sm placeholder:text-gray-50 text-white"
-                                                    required="" id="usernameInput" placeholder="Enter your username">
+                                                    required name="username" id="usernameInput" placeholder="Enter your username">
                                             </div>
                                             <div class="mb-5">
-                                                <label for="passwordInput" class="text-white">Email</label>
+                                                <label for="fullnameInput" class="text-white">Fullname</label>
+                                                <input type="text"
+                                                    class="w-full mt-1 group-data-[theme-color=violet]:bg-violet-400/40 group-data-[theme-color=sky]:bg-sky-400/40 group-data-[theme-color=red]:bg-red-400/40 group-data-[theme-color=green]:bg-green-400/40 group-data-[theme-color=pink]:bg-pink-400/40 group-data-[theme-color=blue]:bg-blue-400/40 py-2.5 rounded border-transparent placeholder:text-sm placeholder:text-gray-50 text-white"
+                                                    required name="fullnames" id="fullnameInput" placeholder="Enter your fullnames">
+                                            </div>
+                                            <div class="mb-5">
+                                                <label for="emailInput" class="text-white">Email</label>
                                                 <input type="email"
                                                     class="w-full mt-1 group-data-[theme-color=violet]:bg-violet-400/40 group-data-[theme-color=sky]:bg-sky-400/40 group-data-[theme-color=red]:bg-red-400/40 group-data-[theme-color=green]:bg-green-400/40 group-data-[theme-color=pink]:bg-pink-400/40 group-data-[theme-color=blue]:bg-blue-400/40 py-2.5 rounded border-transparent placeholder:text-sm placeholder:text-gray-50 text-white"
-                                                    required="" id="emailInput" placeholder="Enter your email">
+                                                    required name="email" id="emailInput" placeholder="Enter your email">
                                             </div>
                                             <div class="mb-5">
                                                 <label for="emailInput" class="text-white">Password</label>
                                                 <input type="password"
                                                     class="w-full mt-1 group-data-[theme-color=violet]:bg-violet-400/40 group-data-[theme-color=sky]:bg-sky-400/40 group-data-[theme-color=red]:bg-red-400/40 group-data-[theme-color=green]:bg-green-400/40 group-data-[theme-color=pink]:bg-pink-400/40 group-data-[theme-color=blue]:bg-blue-400/40 py-2.5 rounded border-transparent placeholder:text-sm placeholder:text-gray-50 text-white"
-                                                    id="passwordInput" placeholder="Enter your password">
+                                                    id="passwordInput" required name="password" placeholder="Enter your password">
                                             </div>
                                             <div class="mb-4">
                                                 <div><input
