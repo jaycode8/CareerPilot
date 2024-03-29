@@ -61,8 +61,7 @@
 
 <div class="main-content">
     <div class="page-content">
-        <section
-            class="pt-28 lg:pt-44 pb-28 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 dark:bg-neutral-900 bg-[url('../images/home/page-title.png')] bg-center bg-cover relative">
+        <section class="pt-28 lg:pt-44 pb-28 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 dark:bg-neutral-900 bg-[url('../images/home/page-title.png')] bg-center bg-cover relative">
             <div class="container mx-auto">
                 <div class="grid">
                     <div class="col-span-12">
@@ -91,7 +90,7 @@
                                     <i class="uil uil-location-point"></i>
                                     <select class="form-select" data-trigger name="choices-single-location" id="choices-single-location" aria-label="Default select example">
                                         {% for type in job_types %}
-                                            <option value="{{type}}">{{type}}</option>
+                                        <option value="{{type}}">{{type}}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -101,15 +100,13 @@
                                     <i class="uil uil-clipboard-notes"></i>
                                     <select class="form-select" data-trigger name="choices-single-categories" id="choices-single-categories" aria-label="Default select example">
                                         {% for category in categories %}
-                                            <option value="{{category}}">{{category}}</option>
+                                        <option value="{{category}}">{{category}}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
                             </div>
                             <div class="col-span-12 xl:col-span-3">
-                                <a
-                                    href="javascript:void(0)"
-                                    class="w-full text-white border-transparent btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 focus:ring focus:ring-custom-500/30"
+                                <a href="javascript:void(0)" class="w-full text-white border-transparent btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 focus:ring focus:ring-custom-500/30"
                                     ><i class="uil uil-filter"></i> Fliter</a
                                 >
                             </div>
@@ -123,7 +120,9 @@
                     <div class="col-span-12 md:col-span-6 lg:col-span-4">
                         <div class="relative p-6 transition-all duration-300 ease-in-out border border-gray-100/50 rounded-xl hover:-translate-y-2 dark:border-neutral-600/70">
                             <div>
-                                <a href="/companies/{{job.company.id}}"><img src="{{ url_for('profile.static', filename='uploads/'+job.company.avatar)}}" alt="" class="img-fluid" /></a>
+                                <a href="/companies/{{job.company.id}}">
+                                    <img src="{{job.company.avatar}}" alt="" class="img-fluid" />
+                                </a>
                             </div>
                             <div class="mt-4">
                                 <div style="display: flex; align-items: center; justify-content: space-between">
@@ -145,7 +144,7 @@
                             <div class="mt-3">
                                 <p class="mb-5 text-gray-500 dark:text-gray-300 hidden">{{job.description}}</p>
                                 <div class="flex items-center justify-between pt-4 border-t border-gray-100/50 dark:border-neutral-600/50">
-                                    <p class="float-left text-gray-500 dark:text-gray-300"> {{job.created_at}}</p>
+                                    <p class="float-left text-gray-500 dark:text-gray-300">{{job.created_at}}</p>
                                     <div class="text-right">
                                         <a
                                             href="/jobs/{{job.id}}"

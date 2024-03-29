@@ -82,7 +82,7 @@
                         <div class="border rounded border-gray-100/50 dark:border-neutral-600">
                             <div class="p-5 border-b border-gray-100/50 dark:border-neutral-600">
                                 <div class="text-center">
-                                    <img src="{{ url_for('profile.static', filename='uploads/'+data.avatar)}}" alt="" class="w-20 h-20 mx-auto rounded-full" />
+                                    <img src="{{data.avatar}}" alt="" class="w-20 h-20 mx-auto rounded-full" />
                                     <h6 class="mt-4 mb-0 text-lg text-gray-900 dark:text-gray-50 capitalize">{{data.name}}</h6>
                                     <p class="mb-4 text-gray-500 dark:text-gray-300">Since {{data.dateFounded.strftime('%b %Y')}}</p>
                                     <ul class="flex flex-wrap justify-center gap-4">
@@ -163,7 +163,7 @@
                                     <div class="col-span-12">
                                         <div class="relative overflow-hidden rounded-md group/gallery">
                                             <img
-                                                src="{{ url_for('profile.static', filename='uploads/'+data.coverImg)}}"
+                                                src="{{data.coverImg}}"
                                                 alt=""
                                                 class="transition-all duration-300 ease-in-out group-hover/gallery:scale-110" />
                                             <div class="transition-all duration-300 ease-in-out group-hover/gallery:bg-black/40 group-hover/gallery:absolute group-hover/gallery:inset-0"></div>
@@ -182,7 +182,7 @@
                                                 <div class="col-span-12 lg:col-span-2">
                                                     <div class="text-center">
                                                         <a href="/companies/{{job.id}}"
-                                                            ><img src="{{ url_for('profile.static', filename='uploads/'+job.company.avatar)}}" alt="" class="md:mx-auto img-fluid rounded-3"
+                                                            ><img src="{{job.company.avatar}}" alt="" class="md:mx-auto img-fluid rounded-3"
                                                         /></a>
                                                     </div>
                                                 </div>

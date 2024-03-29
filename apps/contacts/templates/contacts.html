@@ -58,8 +58,7 @@
 </a>
 <div class="main-content">
     <div class="page-content">
-        <section
-            class="pt-28 lg:pt-44 pb-28 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 dark:bg-neutral-900 bg-[url('../images/home/page-title.png')] bg-center bg-cover relative">
+        <section class="pt-28 lg:pt-44 pb-28 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 dark:bg-neutral-900 bg-[url('../images/home/page-title.png')] bg-center bg-cover relative">
             <div class="container mx-auto">
                 <div class="grid">
                     <div class="col-span-12">
@@ -85,56 +84,32 @@
                                     <div class="col-span-12">
                                         <div class="mb-3">
                                             <label for="nameInput" class="text-gray-900 dark:text-gray-50">Name</label>
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                id="name"
-                                                class="w-full mt-1 rounded border-gray-100/50 placeholder:text-sm placeholder:text-gray-400 dark:bg-transparent dark:border-gray-800 focus:ring-0 focus:ring-offset-0 dark:text-gray-200"
-                                                placeholder="Enter your name" />
+                                            <input type="text" name="name" id="name" class="w-full mt-1 rounded border-gray-100/50 placeholder:text-sm placeholder:text-gray-400 dark:bg-transparent dark:border-gray-800 focus:ring-0 focus:ring-offset-0 dark:text-gray-200" placeholder="Enter your name" />
                                         </div>
                                     </div>
                                     <div class="col-span-12 lg:col-span-6">
                                         <div class="mb-3">
                                             <label for="emailInput" class="text-gray-900 dark:text-gray-50">Email</label>
-                                            <input
-                                                type="email"
-                                                class="w-full mt-1 rounded border-gray-100/50 placeholder:text-sm placeholder:text-gray-400 dark:bg-transparent dark:border-gray-800 focus:ring-0 focus:ring-offset-0 dark:text-gray-200"
-                                                id="emaiol"
-                                                name="email"
-                                                placeholder="Enter your email" />
+                                            <input type="email" class="w-full mt-1 rounded border-gray-100/50 placeholder:text-sm placeholder:text-gray-400 dark:bg-transparent dark:border-gray-800 focus:ring-0 focus:ring-offset-0 dark:text-gray-200" id="emaiol" name="email" placeholder="Enter your email" />
                                         </div>
                                     </div>
                                     <!--end col-->
                                     <div class="col-span-12 lg:col-span-6">
                                         <div class="mb-3">
                                             <label for="subjectInput" class="text-gray-900 dark:text-gray-50">Subject</label>
-                                            <input
-                                                type="text"
-                                                class="w-full mt-1 rounded border-gray-100/50 placeholder:text-sm placeholder:text-gray-400 dark:bg-transparent dark:border-gray-800 focus:ring-0 focus:ring-offset-0 dark:text-gray-200"
-                                                id="subjectInput"
-                                                name="subject"
-                                                placeholder="Enter your subject" />
+                                            <input type="text" class="w-full mt-1 rounded border-gray-100/50 placeholder:text-sm placeholder:text-gray-400 dark:bg-transparent dark:border-gray-800 focus:ring-0 focus:ring-offset-0 dark:text-gray-200" id="subjectInput" name="subject" placeholder="Enter your subject" />
                                         </div>
                                     </div>
                                     <!--end col-->
                                     <div class="col-span-12">
                                         <div class="mb-3">
                                             <label for="meassageInput" class="text-gray-900 dark:text-gray-50">Your Message</label>
-                                            <textarea
-                                                class="w-full mt-1 rounded border-gray-100/50 placeholder:text-sm placeholder:text-gray-400 dark:bg-transparent dark:border-gray-800 focus:ring-0 focus:ring-offset-0 dark:text-gray-200"
-                                                id="meassageInput"
-                                                placeholder="Enter your message"
-                                                name="comments"
-                                                rows="5"></textarea>
+                                            <textarea class="w-full mt-1 rounded border-gray-100/50 placeholder:text-sm placeholder:text-gray-400 dark:bg-transparent dark:border-gray-800 focus:ring-0 focus:ring-offset-0 dark:text-gray-200" id="meassageInput" placeholder="Enter your message" name="comments" rows="5"></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-right">
-                                    <button
-                                        type="submit"
-                                        id="submit"
-                                        name="submit"
-                                        class="text-white border-transparent btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500">
+                                    <button type="submit" id="submit" name="submit" class="text-white border-transparent btn group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500">
                                         Send Message <i class="uil uil-message ms-1"></i>
                                     </button>
                                 </div>
@@ -145,27 +120,25 @@
                         <div class="text-center">
                             <img src="{{ url_for('main.static', filename='images/contact.png')}}" alt="" class="img-fluid" />
                         </div>
-                        <div class="pt-3 mt-4 flex items-center justify-between">
-                            {% for i in contacts %}
-                            <a href="#">
-                                <div
-                                    class="h-30 w-20 group-data-[theme-color=violet]:bg-violet-500/20 group-data-[theme-color=sky]:bg-sky-500/20 group-data-[theme-color=red]:bg-red-500/20 group-data-[theme-color=green]:bg-green-500/20 group-data-[theme-color=pink]:bg-pink-500/20 group-data-[theme-color=blue]:bg-blue-500/20 rounded-lg text-center leading-[4.4] mx-auto dark:bg-violet-900">
-                                    <i class="uim uim-layers-alt"></i>
-                                    <p>0111482180</p>
-                                </div>
-                            </a>
-                            {% endfor %}
-                        </div>
+                        <ul class="flex flex-wrap justify-center gap-4 py-6">
+                            <li
+                                class="h-10 w-10 text-center leading-[2.2] bg-gray-50 rounded-full text-lg text-gray-500 group-data-[theme-color=violet]:hover:bg-violet-500 group-data-[theme-color=sky]:hover:bg-sky-500 group-data-[theme-color=red]:hover:bg-red-500 group-data-[theme-color=green]:hover:bg-green-500 group-data-[theme-color=pink]:hover:bg-pink-500 group-data-[theme-color=blue]:hover:bg-blue-500 hover:text-white cursor-pointer transition-all duration-300 ease-in dark:bg-neutral-700 dark:text-white dark:hover:bg-violet-500/20">
+                                <a href="javascript:void(0)" class="social-link"><i class="uil uil-twitter-alt"></i></a>
+                            </li>
+                            <li
+                                class="h-10 w-10 text-center leading-[2.2] bg-gray-50 rounded-full text-lg text-gray-500 group-data-[theme-color=violet]:hover:bg-violet-500 group-data-[theme-color=sky]:hover:bg-sky-500 group-data-[theme-color=red]:hover:bg-red-500 group-data-[theme-color=green]:hover:bg-green-500 group-data-[theme-color=pink]:hover:bg-pink-500 group-data-[theme-color=blue]:hover:bg-blue-500 hover:text-white cursor-pointer transition-all duration-300 ease-in dark:bg-neutral-700 dark:text-white dark:hover:bg-violet-500/20">
+                                <a href="javascript:void(0)" class="social-link"><i class="uil uil-whatsapp"></i></a>
+                            </li>
+                            <li
+                                class="h-10 w-10 text-center leading-[2.2] bg-gray-50 rounded-full text-lg text-gray-500 group-data-[theme-color=violet]:hover:bg-violet-500 group-data-[theme-color=sky]:hover:bg-sky-500 group-data-[theme-color=red]:hover:bg-red-500 group-data-[theme-color=green]:hover:bg-green-500 group-data-[theme-color=pink]:hover:bg-pink-500 group-data-[theme-color=blue]:hover:bg-blue-500 hover:text-white cursor-pointer transition-all duration-300 ease-in dark:bg-neutral-700 dark:text-white dark:hover:bg-violet-500/20">
+                                <a href="javascript:void(0)" class="social-link"><i class="uil uil-phone-alt"></i></a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="pt-20">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6509157.364974411!2d-123.79641389801948!3d37.193115265681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb9fe5f285e3d%3A0x8b5109a227086f55!2sCalifornia%2C%20USA!5e0!3m2!1sen!2sin!4v1628684675253!5m2!1sen!2sin"
-                    height="350"
-                    style="border: 0; width: 100%"
-                    allowfullscreen=""
-                    loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6509157.364974411!2d-123.79641389801948!3d37.193115265681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb9fe5f285e3d%3A0x8b5109a227086f55!2sCalifornia%2C%20USA!5e0!3m2!1sen!2sin!4v1628684675253!5m2!1sen!2sin" height="350" style="border: 0; width: 100%" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </section>
     </div>

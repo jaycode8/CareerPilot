@@ -141,13 +141,12 @@ def employer():
         hashed_password = generate_password_hash(password)
         if avatar:
             coverImg = request.files["companyCover"]
+            directory = "careerpilot/companies"
             if coverImg:
-                fname1 = secure_filename(avatar.filename)
-                avatar.save(os.path.join('apps/Profile/static/uploads/', fname1))
-                avatar = fname1
-                fname2 = secure_filename(coverImg.filename)
-                coverImg.save(os.path.join('apps/Profile/static/uploads/', fname2))
-                coverImg = fname2
+                avatar_result = upload(avatar, folder=directory)
+                avatar = avatar_result['url']
+                cover_result = upload(coverImg, folder=directory)
+                coverImg = cover_result['url']
                 new_company = Company(name=name, ceoname=ceo,email=email,password=hashed_password, description=desc,website=website, location=loc, dateFounded = dateFound, avatar=avatar,coverImg=coverImg, phone=ph)
                 try:
                     new_company.save()
@@ -177,9 +176,9 @@ def newJob():
         skill_list = [skill.strip() for skill in skills.split((","))]
         coverImg = request.files["jobcover"]
         if coverImg:
-            fname = secure_filename(coverImg.filename)
-            coverImg.save(os.path.join('apps/Profile/static/uploads/', fname))
-            coverImg = fname
+            directory = "careerpilot/jobs"
+            result = upload(coverImg, folder=directory)
+            coverImg = result['url']
             new_job = Jobs(title=title, job_type=jobtype, category=category, position=position, salary=salary, description=description, skills=skill_list, responsibilities=respo, experience=experience,qualifications=qualif, cover=coverImg, company=request.cookies.get("user"))
             try:
                 new_job.save()

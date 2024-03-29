@@ -91,10 +91,10 @@
                     <div class="col-span-12 lg:col-span-8">
                         <div class="border rounded-md border-gray-100/30 dark:border-neutral-600/80">
                             <div class="relative">
-                                <img src="{{ url_for('profile.static', filename='uploads/'+job.cover)}}" alt=""
+                                <img src="{{job.cover}}" alt=""
                                     class="rounded-md img-fluid mb-7">
                                 <div class="absolute z-20 -bottom-7 left-7">
-                                    <img src="{{ url_for('profile.static', filename='uploads/'+job.company.avatar)}}"
+                                    <img src="{{job.company.avatar}}"
                                         alt="" class="rounded-md img-fluid">
                                 </div>
                             </div>
@@ -197,7 +197,7 @@
                                         <div class="col-span-12 lg:col-span-1">
                                             <div class="mb-4 text-center mb-md-0">
                                                 <a href="/companies/{{jb.company.id}}"><img
-                                                        src="{{ url_for('profile.static', filename='uploads/'+jb.company.avatar)}}"
+                                                        src="{{jb.company.avatar}}"
                                                         alt="" class="mx-auto img-fluid rounded-3"></a>
                                             </div>
                                         </div>
@@ -330,7 +330,7 @@
                         <div class="border rounded border-gray-100/30 dark:border-neutral-600/80">
                             <div class="p-6">
                                 <div>
-                                    <img src="{{ url_for('profile.static', filename='uploads/'+job.company.avatar)}}" alt="" class="mx-auto img-fluid">
+                                    <img src="{{job.company.avatar}}" alt="" class="mx-auto img-fluid">
 
                                     <div class="mt-4 text-center">
                                         <h6 class="text-gray-900 text-17 dark:text-gray-50 capitalize">{{job.company.name}}</h6>

@@ -96,7 +96,7 @@
                                         <img src="{{ url_for('profile.static', filename='img/avatar.jpeg')}}" alt=""
                                             class="w-20 h-20 p-1 mx-auto border-2 rounded-full border-gray-200/20">
                                     {% else %}
-                                    <img src="{{ url_for('profile.static', filename='uploads/'+user.profile_pic)}}" alt=""
+                                    <img src="{{user.profile_pic}}" alt=""
                                             class="w-20 h-20 p-1 mx-auto border-2 rounded-full border-gray-200/20">
                                     {% endif %}
                                     <h6 class="mt-4 mb-0 text-lg text-gray-900 dark:text-gray-50 uppercase">{{user.fullnames}}</h6>
@@ -267,7 +267,7 @@
                                                             class="w-40 h-40 p-1 mx-auto border-2 rounded-full border-gray-100/50 dark:border-neutral-600"
                                                             id="profile-img" alt="{{user.username}}">
                                                         {%else%}
-                                                        <img src="{{ url_for('profile.static', filename='uploads/'+user.profile_pic)}}"
+                                                        <img src="{{user.profile_pic}}"
                                                             class="w-40 h-40 p-1 mx-auto border-2 rounded-full border-gray-100/50 dark:border-neutral-600"
                                                             id="profile-img" alt="{{user.username}}">
                                                         {% endif %}

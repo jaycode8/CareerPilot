@@ -24,7 +24,7 @@
                             {% if current_user.profile != '' %}
                             <img
                                 class="w-8 h-8 rounded-full ltr:xl:mr-2 rtl:xl:ml-2"
-                                src="{{ url_for('profile.static', filename='uploads/'+current_user.profile_pic)}}"
+                                src="{{current_user.profile_pic}}"
                                 alt="Header Avatar" />
                             {% else %}
                             <img
