@@ -175,6 +175,7 @@ def newJob():
         skills = request.form.get("skills")
         skill_list = [skill.strip() for skill in skills.split((","))]
         coverImg = request.files["jobcover"]
+        print(salary)
         if coverImg:
             directory = "careerpilot/jobs"
             result = upload(coverImg, folder=directory)

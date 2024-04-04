@@ -1,0 +1,11 @@
+@media screen and (max-width: 400px) {
+    .mkuu{
+        width: 90%;
+    }
+    .mkuu .homeslider{
+        margin-left: -1rem;
+    }
+    .mkuu .homeslider h2{
+        font-size: 1.5rem;
+    }
+}

@@ -121,7 +121,9 @@
                         <div class="relative p-6 transition-all duration-300 ease-in-out border border-gray-100/50 rounded-xl hover:-translate-y-2 dark:border-neutral-600/70">
                             <div>
                                 <a href="/companies/{{job.company.id}}">
-                                    <img src="{{job.company.avatar}}" alt="" class="img-fluid" />
+                                    <div class="w-full h-60">
+                                        <img src="{{job.company.avatar}}" alt="" class="img-fluids w-full h-full object-cover" />
+                                    </div>
                                 </a>
                             </div>
                             <div class="mt-4">

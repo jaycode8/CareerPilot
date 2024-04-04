@@ -94,8 +94,10 @@
                         <div class="col-span-12 lg:col-span-4 py-6 sm:py-0">
                             <div
                                 class="relative px-6 py-12 border rounded-md border-gray-100/50 dark:border-neutral-600">
-                                <img src="{{company.avatar}}" alt=""
-                                    class="mx-auto">
+                                <div class="w-full h-60">
+                                    <img src="{{company.avatar}}" alt=""
+                                         class="mx-auto w-full h-full object-cover">
+                                </div>
                                 <div class="mt-5 text-center">
                                     <a href="/companies/{{company.id}}">
                                         <h6 class="mb-3 text-lg text-gray-900 dark:text-white uppercase">{{company.name}}</h6>
@@ -125,6 +127,6 @@
         </section>
         {% endblock %}
 
-        </html>
+        </div>
 
-        </html>
+        </div>
