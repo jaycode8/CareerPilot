@@ -1,48 +1,41 @@
-{% extends 'base.html' %}
-{% block title %}careerpilot - homepage{% endblock %}
-{% block content%}
+{% extends 'base.html' %} {% block title %}careerpilot - homepage{% endblock %} {% block content%}
 
 <div class="fixed z-40 flex flex-col gap-3 ltr:left-0 rtl:right-0 top-[330px]">
     <!-- light-dark mode button -->
-    <a href="javascript: void(0);" id="ltr-rtl"
+    <a
+        href="javascript: void(0);"
+        id="ltr-rtl"
         class="z-40 px-3 py-3 font-medium text-white transition-all duration-300 ease-linear group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 text-14 hover:bg-violet-700 ltr:rounded-r rtl:rounded-l"
         onclick="changeMode(event)">
         <span class="ltr:hidden">LTR</span>
         <span class="rtl:hidden">RTL</span>
     </a>
-
 </div>
 
 <div class="fixed transition-all duration-300 ease-linear top-[27.5rem] switcher" id="style-switcher">
     <div class="w-48 p-4 bg-white shadow-md">
         <div>
             <h3 class="mb-2 font-semibold text-gray-900 text-16">Select your color</h3>
-            <ul class="flex gap-3 ">
+            <ul class="flex gap-3">
                 <li>
-                    <a class="h-10 w-10 bg-[#815DF2] block rounded-full" data-color="violet"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#815DF2] block rounded-full" data-color="violet" href="javascript: void(0);"></a>
                 </li>
                 <li>
-                    <a class="h-10 w-10 bg-[#69cdf1] block rounded-full" data-color="sky"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#69cdf1] block rounded-full" data-color="sky" href="javascript: void(0);"></a>
                 </li>
                 <li>
-                    <a class="h-10 w-10 bg-[#dd4948] block rounded-full" data-color="red"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#dd4948] block rounded-full" data-color="red" href="javascript: void(0);"></a>
                 </li>
             </ul>
             <ul class="flex gap-3 mt-4">
                 <li>
-                    <a class="h-10 w-10 bg-[#38c284] block rounded-full" data-color="green"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#38c284] block rounded-full" data-color="green" href="javascript: void(0);"></a>
                 </li>
                 <li>
-                    <a class="h-10 w-10 bg-[#e35490] block rounded-full" data-color="pink"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#e35490] block rounded-full" data-color="pink" href="javascript: void(0);"></a>
                 </li>
                 <li>
-                    <a class="h-10 w-10 bg-[#5276f4] block rounded-full" data-color="blue"
-                        href="javascript: void(0);"></a>
+                    <a class="h-10 w-10 bg-[#5276f4] block rounded-full" data-color="blue" href="javascript: void(0);"></a>
                 </li>
             </ul>
         </div>
@@ -51,9 +44,7 @@
             <h3 class="mb-2 font-semibold text-gray-900 text-16">Light/dark Layout</h3>
             <div class="flex justify-center mt-2">
                 <!-- light-dark mode button -->
-                <a href="javascript: void(0);" id="mode"
-                    class="z-40 px-6 py-2 font-normal text-white transition-all duration-300 ease-linear rounded text-14 bg-zinc-800"
-                    onclick="changeMode(event)">
+                <a href="javascript: void(0);" id="mode" class="z-40 px-6 py-2 font-normal text-white transition-all duration-300 ease-linear rounded text-14 bg-zinc-800" onclick="changeMode(event)">
                     <i class="hidden text-xl uil uil-brightness dark:text-white dark:inline-block"></i>
                     <i class="inline-block text-xl uil uil-moon dark:text-zinc-800 dark:hidden"></i>
                 </a>
@@ -62,7 +53,9 @@
     </div>
 </div>
 <!-- light-dark mode button -->
-<a href="javascript: void(0);" onclick="toggleSwitcher()"
+<a
+    href="javascript: void(0);"
+    onclick="toggleSwitcher()"
     class="fixed z-40 flex flex-col gap-3 px-4 py-3 font-normal text-white group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 top-96 text-14 ltr:rounded-r rtl:rounded-l">
     <i class="text-xl mdi mdi-cog mdi-spin"></i>
 </a>
@@ -70,72 +63,57 @@
 <div class="main-content">
     <div class="page-content">
         <!-- start home -->
-        <section
-            class="relative group-data-[theme-color=violet]:bg-violet-500/20 group-data-[theme-color=sky]:bg-sky-500/20 group-data-[theme-color=red]:bg-red-500/20 group-data-[theme-color=green]:bg-green-500/20 group-data-[theme-color=pink]:bg-pink-500/20 group-data-[theme-color=blue]:bg-blue-500/20 py-28 dark:bg-violet-500/20">
+        <section class="relative group-data-[theme-color=violet]:bg-violet-500/20 group-data-[theme-color=sky]:bg-sky-500/20 group-data-[theme-color=red]:bg-red-500/20 group-data-[theme-color=green]:bg-green-500/20 group-data-[theme-color=pink]:bg-pink-500/20 group-data-[theme-color=blue]:bg-blue-500/20 py-28 dark:bg-violet-500/20">
             <div class="container mx-auto">
                 <div class="grid items-center grid-cols-12 gap-10">
                     <div class="col-span-12 lg:col-span-7">
                         <div class="mb-3 ltr:mr-14 rtl:ml-14">
-                            <h6 class="mb-3 text-sm text-gray-900 uppercase dark:text-gray-50">We have 150,000+ live
-                                jobs</h6>
+                            <h6 class="mb-3 text-sm text-gray-900 uppercase dark:text-gray-50">We have 150,000+ live jobs</h6>
                             <h1 class="mb-3 text-5xl font-semibold leading-tight text-gray-900 dark:text-gray-50">
-                                Find your dream jobs <br> with <span
-                                    class="font-bold group-data-[theme-color=violet]:text-violet-500 group-data-[theme-color=sky]:text-sky-500 group-data-[theme-color=red]:text-red-500 group-data-[theme-color=green]:text-green-500 group-data-[theme-color=pink]:text-pink-500 group-data-[theme-color=blue]:text-blue-500">careerpilot</span>
+                                Find your dream jobs <br />
+                                with <span class="font-bold group-data-[theme-color=violet]:text-violet-500 group-data-[theme-color=sky]:text-sky-500 group-data-[theme-color=red]:text-red-500 group-data-[theme-color=green]:text-green-500 group-data-[theme-color=pink]:text-pink-500 group-data-[theme-color=blue]:text-blue-500">careerpilot</span>
                             </h1>
-                            <p class="text-lg font-light text-gray-500 whitespace-pre-line dark:text-gray-300">Find
-                                jobs, create trackable resumes and enrich your
-                                applications.Carefully crafted after analyzing the needs of different
-                                industries.</p>
+                            <p class="text-lg font-light text-gray-500 whitespace-pre-line dark:text-gray-300">Find jobs, create trackable resumes and enrich your applications.Carefully crafted after analyzing the needs of different industries.</p>
                         </div>
                     </div>
-                    <div class="col-span-12 lg:col-span-5">
+                    <div class="col-span-10 lg:col-span-5" style="overflow-x:hidden;">
                         <div class="relative mt-5 mt-lg-0 ms-xl-5">
                             <div>
                                 <div class="absolute z-20 text-white text-8xl -top-12 -left-12">
                                     <i class="mdi mdi-format-quote-open"></i>
                                 </div>
-                                <div
-                                    class="text-8xl absolute -top-[3.2rem] -left-[3.2rem] z-30 group-data-[theme-color=violet]:text-violet-500 group-data-[theme-color=sky]:text-sky-500 group-data-[theme-color=red]:text-red-500 group-data-[theme-color=green]:text-green-500 group-data-[theme-color=pink]:text-pink-500 group-data-[theme-color=blue]:text-blue-500">
-                                    <i class="mdi mdi-format-quote-open "></i>
+                                <div class="text-8xl absolute -top-[3.2rem] -left-[3.2rem] z-30 group-data-[theme-color=violet]:text-violet-500 group-data-[theme-color=sky]:text-sky-500 group-data-[theme-color=red]:text-red-500 group-data-[theme-color=green]:text-green-500 group-data-[theme-color=pink]:text-pink-500 group-data-[theme-color=blue]:text-blue-500">
+                                    <i class="mdi mdi-format-quote-open"></i>
                                 </div>
                             </div>
                             <div class="swiper homeslider">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="text-center home-slide-box">
-                                            <img src="{{ url_for('main.static', filename='images/home/img-02.png')}}"
-                                                alt="" class="max-w-full rounded-3">
+                                            <img src="{{ url_for('main.static', filename='images/home/img-02.png')}}" alt="" class="max-w-full rounded-3"/>
                                             <div class="bg-overlay"></div>
                                             <div class="absolute bottom-0 p-4">
-                                                <h2 class="text-white font-secound fw-normal">" It looks perfect on
-                                                    all major browsers, tablets,
-                                                    and mobile devices."</h2>
+                                                <h2 class="text-white font-secound fw-normal">" It looks perfect on all major browsers, tablets, and mobile devices."</h2>
                                                 <h6 class="text-white">- MichaeL Drake</h6>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="text-center home-slide-box">
-                                            <img src="{{ url_for('main.static', filename='images/home/img-03.png')}}"
-                                                alt="" class="max-w-full rounded-3">
+                                            <img src="{{ url_for('main.static', filename='images/home/img-03.png')}}" alt="" class="max-w-full rounded-3" />
                                             <div class="bg-overlay"></div>
                                             <div class="absolute bottom-0 p-4">
-                                                <h2 class="text-white font-secound fw-normal">" This template is
-                                                    well organized and very easy to
-                                                    customize. "</h2>
+                                                <h2 class="text-white font-secound fw-normal">" This template is well organized and very easy to customize. "</h2>
                                                 <h6 class="text-white">- Charles Dickens</h6>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="text-center home-slide-box">
-                                            <img src="{{ url_for('main.static', filename='images/home/img-04.png')}}"
-                                                alt="" class="max-w-full rounded-3">
+                                            <img src="{{ url_for('main.static', filename='images/home/img-04.png')}}" alt="" class="max-w-full rounded-3" />
                                             <div class="bg-overlay"></div>
                                             <div class="absolute bottom-0 p-4">
-                                                <h2 class="text-white font-secound fw-normal">" All your client
-                                                    websites if you are an agency or
-                                                    freelancer. "</h2>
+                                                <h2 class="text-white font-secound fw-normal">" All your client websites if you are an agency or freelancer. "</h2>
                                                 <h6 class="text-white">- Rebecca Swartz</h6>
                                             </div>
                                         </div>
@@ -154,17 +132,14 @@
                 <div class="grid grid-cols-1 gap-5">
                     <div class="text-center">
                         <h3 class="mb-3 text-3xl text-gray-900 dark:text-gray-50">Browser Jobs Categories</h3>
-                        <p class="mb-5 text-gray-500 whitespace-pre-line dark:text-gray-300">Post a job to tell us
-                            about your project. We'll quickly match you with the
-                            right freelancers.</p>
+                        <p class="mb-5 text-gray-500 whitespace-pre-line dark:text-gray-300">Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
                     </div>
                 </div>
                 <div class="grid grid-cols-12 gap-5">
                     {% for category in categories %}
                     <div class="col-span-12 md:col-span-6 lg:col-span-3">
                         <a href="/jobs/category/{{category}}" class="mt-4">
-                            <div
-                                class="px-6 py-5 transition-all duration-500 ease-in-out cursor-pointer lg:py-10 hover:-translate-y-2">
+                            <div class="px-6 py-5 transition-all duration-500 ease-in-out cursor-pointer lg:py-10 hover:-translate-y-2">
                                 <div
                                     class="job-categorie h-16 w-16 group-data-[theme-color=violet]:bg-violet-500/20 group-data-[theme-color=sky]:bg-sky-500/20 group-data-[theme-color=red]:bg-red-500/20 group-data-[theme-color=green]:bg-green-500/20 group-data-[theme-color=pink]:bg-pink-500/20 group-data-[theme-color=blue]:bg-blue-500/20 rounded-lg text-center leading-[4.4] mx-auto dark:bg-violet-900">
                                     <i class="uim uim-layers-alt"></i>
@@ -188,99 +163,65 @@
                     <div class="grid items-center grid-cols-12 gap-5">
                         <div class="col-span-12 lg:col-span-6">
                             <h3 class="mb-3 text-3xl text-gray-900 dark:text-gray-50">How It Work</h3>
-                            <p class="text-gray-500 dark:text-gray-300">Post a job to tell us about your project.
-                                We'll quickly match you with the
-                                right freelancers.</p>
+                            <p class="text-gray-500 dark:text-gray-300">Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
 
                             <div class="mt-5">
                                 <ul class="text-gray-700 nav">
                                     <li class="w-full mb-[22px]">
-                                        <a href="javascript:void(0);" data-tw-toggle="tab"
-                                            data-tw-target="v-pills-home-tab"
-                                            class="relative inline-block w-full p-2 active group/active"
-                                            aria-current="page">
-                                            <div
-                                                class="after:content-[''] after:h-[65px] after:border after:border-dashed after:border-gray-100 after:absolute ltr:after:left-7 rtl:after:right-7 after:-bottom-5 after:group-[.active]:bg-violet-300 hidden md:block">
-                                            </div>
+                                        <a href="javascript:void(0);" data-tw-toggle="tab" data-tw-target="v-pills-home-tab" class="relative inline-block w-full p-2 active group/active" aria-current="page">
+                                            <div class="after:content-[''] after:h-[65px] after:border after:border-dashed after:border-gray-100 after:absolute ltr:after:left-7 rtl:after:right-7 after:-bottom-5 after:group-[.active]:bg-violet-300 hidden md:block"></div>
                                             <div class="flex">
                                                 <div
                                                     class="shrink-0 h-10 w-10 rounded-full text-center bg-gray-500/20 group-[.active]:group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:group-[.active]:bg-sky-500 group-data-[theme-color=red]:group-[.active]:bg-red-500 group-data-[theme-color=green]:group-[.active]:bg-green-500 group-data-[theme-color=pink]:group-[.active]:bg-pink-500 group-data-[theme-color=blue]:group-[.active]:bg-blue-500">
-                                                    <span
-                                                        class="text-gray-900 group-[.active]:text-white text-16 leading-[2.5] dark:text-gray-50">1</span>
+                                                    <span class="text-gray-900 group-[.active]:text-white text-16 leading-[2.5] dark:text-gray-50">1</span>
                                                 </div>
                                                 <div class="grow ltr:ml-4 rtl:mr-4">
-                                                    <h5
-                                                        class="fs-18 text-gray-900 group-data-[theme-color=violet]:group-[.active]:text-violet-500 group-data-[theme-color=sky]:group-[.active]:text-sky-500 dark:text-gray-50">
-                                                        Register an account</h5>
-                                                    <p class="mt-1 mb-2 text-gray-500 dark:text-gray-300">Due to its
-                                                        widespread use as filler text for layouts, non-readability
-                                                        is of great importance.</p>
+                                                    <h5 class="fs-18 text-gray-900 group-data-[theme-color=violet]:group-[.active]:text-violet-500 group-data-[theme-color=sky]:group-[.active]:text-sky-500 dark:text-gray-50">Register an account</h5>
+                                                    <p class="mt-1 mb-2 text-gray-500 dark:text-gray-300">Due to its widespread use as filler text for layouts, non-readability is of great importance.</p>
                                                 </div>
                                             </div>
                                         </a>
                                     </li>
                                     <li class="w-full mb-[22px]">
-                                        <a href="javascript:void(0);" data-tw-toggle="tab"
-                                            data-tw-target="v-pills-profile"
-                                            class="relative inline-block w-full p-2 group" aria-current="page">
-                                            <div
-                                                class="after:content-[''] after:h-[65px] after:border after:border-dashed after:border-gray-100 after:absolute ltr:after:left-7 rtl:after:right-7 after:-bottom-5 after:group-[.active]:bg-violet-300 hidden md:block">
-                                            </div>
+                                        <a href="javascript:void(0);" data-tw-toggle="tab" data-tw-target="v-pills-profile" class="relative inline-block w-full p-2 group" aria-current="page">
+                                            <div class="after:content-[''] after:h-[65px] after:border after:border-dashed after:border-gray-100 after:absolute ltr:after:left-7 rtl:after:right-7 after:-bottom-5 after:group-[.active]:bg-violet-300 hidden md:block"></div>
                                             <div class="flex">
-                                                <div
-                                                    class="shrink-0 h-10 w-10 rounded-full text-center bg-gray-500/20 group-[.active]:bg-violet-500">
-                                                    <span
-                                                        class="text-gray-900 group-[.active]:text-white text-16 leading-[2.5] dark:text-gray-50">2</span>
+                                                <div class="shrink-0 h-10 w-10 rounded-full text-center bg-gray-500/20 group-[.active]:bg-violet-500">
+                                                    <span class="text-gray-900 group-[.active]:text-white text-16 leading-[2.5] dark:text-gray-50">2</span>
                                                 </div>
                                                 <div class="grow ltr:ml-4 rtl:mr-4">
-                                                    <h5
-                                                        class="fs-18 text-gray-900 group-[.active]:text-violet-500 dark:text-gray-50">
-                                                        Find your job</h5>
-                                                    <p class="mt-1 mb-2 text-gray-500">There are many variations of
-                                                        passages of avaibookmark-label, but the majority
-                                                        alteration in some form.</p>
+                                                    <h5 class="fs-18 text-gray-900 group-[.active]:text-violet-500 dark:text-gray-50">Find your job</h5>
+                                                    <p class="mt-1 mb-2 text-gray-500">There are many variations of passages of avaibookmark-label, but the majority alteration in some form.</p>
                                                 </div>
                                             </div>
                                         </a>
                                     </li>
                                     <li class="w-full mb-[22px]">
-                                        <a href="javascript:void(0);" data-tw-toggle="tab"
-                                            data-tw-target="v-pills-messages"
-                                            class="relative inline-block w-full p-2 group" aria-current="page">
+                                        <a href="javascript:void(0);" data-tw-toggle="tab" data-tw-target="v-pills-messages" class="relative inline-block w-full p-2 group" aria-current="page">
                                             <div class="flex">
-                                                <div
-                                                    class="shrink-0 h-10 w-10 rounded-full text-center bg-gray-500/20 group-[.active]:bg-violet-500">
-                                                    <span
-                                                        class="text-gray-900 group-[.active]:text-white text-16 leading-[2.5] dark:text-gray-50">3</span>
+                                                <div class="shrink-0 h-10 w-10 rounded-full text-center bg-gray-500/20 group-[.active]:bg-violet-500">
+                                                    <span class="text-gray-900 group-[.active]:text-white text-16 leading-[2.5] dark:text-gray-50">3</span>
                                                 </div>
                                                 <div class="grow ltr:ml-4 rtl:mr-4">
-                                                    <h5
-                                                        class="fs-18 text-gray-900 group-[.active]:text-violet-500 dark:text-gray-50">
-                                                        Apply for job</h5>
-                                                    <p class="mt-1 mb-2 text-gray-500">It is a long established fact
-                                                        that a reader will be distracted by the
-                                                        readable content of a page.</p>
+                                                    <h5 class="fs-18 text-gray-900 group-[.active]:text-violet-500 dark:text-gray-50">Apply for job</h5>
+                                                    <p class="mt-1 mb-2 text-gray-500">It is a long established fact that a reader will be distracted by the readable content of a page.</p>
                                                 </div>
                                             </div>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
                         <div class="col-span-12 lg:col-span-6">
                             <div class="tab-content">
                                 <div class="block tab-pane" id="v-pills-home-tab">
-                                    <img src="{{ url_for('main.static', filename='images/process-01.png')}}" alt=""
-                                        class="max-w-full">
+                                    <img src="{{ url_for('main.static', filename='images/process-01.png')}}" alt="" class="max-w-full" />
                                 </div>
                                 <div class="hidden tab-pane" id="v-pills-profile">
-                                    <img src="{{ url_for('main.static', filename='images/process-02.png')}}" alt=""
-                                        class="max-w-full">
+                                    <img src="{{ url_for('main.static', filename='images/process-02.png')}}" alt="" class="max-w-full" />
                                 </div>
                                 <div class="hidden tab-pane" id="v-pills-messages">
-                                    <img src="{{ url_for('main.static', filename='images/process-03.png')}}" alt=""
-                                        class="max-w-full">
+                                    <img src="{{ url_for('main.static', filename='images/process-03.png')}}" alt="" class="max-w-full" />
                                 </div>
                             </div>
                         </div>
@@ -303,14 +244,9 @@
                                 <div class="swiper-slide">
                                     <div class="text-center">
                                         <div class="mb-4">
-                                            <img src="{{ url_for('main.static', filename='images/user/img-04.jpg')}}"
-                                                 class="rounded-full mx-auto" style="height: 5rem;" alt="" />
+                                            <img src="{{ url_for('main.static', filename='images/user/img-04.jpg')}}" class="rounded-full mx-auto" style="height: 5rem" alt="" />
                                         </div>
-                                        <p class="mb-4 text-lg font-thin text-gray-500 dark:text-gray-200">" Very
-                                            well thought out and articulate communication.
-                                            Clear milestones, deadlines and fast work. Patience. Infinite patience.
-                                            No
-                                            shortcuts. Even if the client is being careless. "</p>
+                                        <p class="mb-4 text-lg font-thin text-gray-500 dark:text-gray-200">" Very well thought out and articulate communication. Clear milestones, deadlines and fast work. Patience. Infinite patience. No shortcuts. Even if the client is being careless. "</p>
                                         <h5 class="mb-0 dark:text-gray-50">Jeffrey Montgomery</h5>
                                         <p class="mb-0 text-gray-500 dark:text-gray-300">Product Manager</p>
                                     </div>
@@ -323,7 +259,6 @@
                 </div>
             </div>
         </section>
-
     </div>
 </div>
 
@@ -333,24 +268,24 @@
             <div class="col-span-12 lg:col-span-7">
                 <div class="text-center lg:text-start">
                     <h4 class="text-white">Get New Jobs Notification!</h4>
-                    <p class="mt-1 mb-0 text-white/50 dark:text-gray-300">Subscribe &amp; get all related jobs
-                        notification.</p>
+                    <p class="mt-1 mb-0 text-white/50 dark:text-gray-300">Subscribe &amp; get all related jobs notification.</p>
                 </div>
             </div>
             <div class="z-40 col-span-12 lg:col-span-5">
                 <form class="flex" action="#">
-                    <input type="text"
-                        class="w-full text-gray-100 bg-transparent rounded-md border-gray-50/30 ltr:border-r-0 rtl:border-l-0 ltr:rounded-r-none rtl:rounded-l-none placeholder:text-13 placeholder:text-gray-100 dark:text-gray-100 dark:bg-white/5 dark:border-neutral-600 focus:ring-0 focus:ring-offset-0"
-                        id="subscribe" placeholder="Enter your email">
+                    <input type="text" class="w-full text-gray-100 bg-transparent rounded-md border-gray-50/30 ltr:border-r-0 rtl:border-l-0 ltr:rounded-r-none rtl:rounded-l-none placeholder:text-13 placeholder:text-gray-100 dark:text-gray-100 dark:bg-white/5 dark:border-neutral-600 focus:ring-0 focus:ring-offset-0" id="subscribe" placeholder="Enter your email" />
                     <button
                         class="text-white border-transparent btn ltr:rounded-l-none rtl:rounded-r-none group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 focus:ring focus:ring-custom-500/30"
-                        type="button" id="subscribebtn">Subscribe</button>
+                        type="button"
+                        id="subscribebtn">
+                        Subscribe
+                    </button>
                 </form>
             </div>
         </div>
     </div>
     <div class="absolute right-0 -top-10 -z-0 opacity-20">
-        <img src="assets/images/subscribe.png" alt="" class="img-fluid">
+        <img src="assets/images/subscribe.png" alt="" class="img-fluid" />
     </div>
 </section>
 {% endblock %}
