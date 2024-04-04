@@ -1,11 +1,24 @@
+@media screen and (max-width: 500px) {
+    .dream-job {
+        margin-left: -20px;
+        width: 85%;
+    }
+    .dream-job h1 {
+        font-size: 2rem !important;
+    }
+}
+
 @media screen and (max-width: 400px) {
-    .mkuu{
+    .dream-job {
+        width: 75%;
+    }
+    .mkuu {
         width: 90%;
     }
-    .mkuu .homeslider{
+    .mkuu .homeslider {
         margin-left: -1rem;
     }
-    .mkuu .homeslider h2{
+    .mkuu .homeslider h2 {
         font-size: 1.5rem;
     }
 }
