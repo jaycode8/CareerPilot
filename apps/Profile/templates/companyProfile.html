@@ -61,8 +61,7 @@
 
 <div class="main-content">
     <div class="page-content">
-        <section
-            class="pt-28 lg:pt-44 pb-28 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 dark:bg-neutral-900 bg-[url('../images/home/page-title.png')] bg-center bg-cover relative">
+        <section class="pt-28 lg:pt-44 pb-28 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 dark:bg-neutral-900 bg-[url('../images/home/page-title.png')] bg-center bg-cover relative">
             <div class="container mx-auto">
                 <div class="grid">
                     <div class="col-span-12">
@@ -82,7 +81,7 @@
                         <div class="border rounded border-gray-100/50 dark:border-neutral-600">
                             <div class="p-5 border-b border-gray-100/50 dark:border-neutral-600">
                                 <div class="text-center">
-                                    <img src="{{ url_for('profile.static', filename='uploads/'+company.avatar)}}" alt="" class="w-20 h-20 p-1 mx-auto border-2 rounded-full border-gray-200/20" />
+                                    <img src="{{ company.avatar }}" alt="" class="w-20 h-20 p-1 mx-auto border-2 rounded-full border-gray-200/20" />
                                     <h6 class="mt-4 mb-0 text-lg text-gray-900 dark:text-gray-50 uppercase">{{company.name}}</h6>
                                     <ul class="flex flex-wrap justify-center gap-2 mb-0">
                                         <li class="w-10 h-10 text-lg leading-10 transition-all duration-300 ease-in-out rounded bg-violet-500/20 text-violet-500 hover:bg-violet-500 hover:text-white">
@@ -182,11 +181,7 @@
                                         <div>
                                             <h5 class="text-lg font-bold text-gray-900 dark:text-gray-50">Cover photo</h5>
                                             <div class="mt-4 w-full overflow-hidden" style="height: 25rem">
-                                                <img
-                                                    src="{{ url_for('profile.static', filename='uploads/'+company.coverImg)}}"
-                                                    id="profile-img"
-                                                    alt="{{company.name}}"
-                                                    class="w-full h-full object-cover" />
+                                                <img src="{{ company.coverImg }}" id="profile-img" alt="{{company.name}}" class="w-full h-full object-cover" />
                                             </div>
                                         </div>
                                     </div>
@@ -200,27 +195,23 @@
                                                     <div class="p-6">
                                                         <div class="grid grid-cols-12 gap-y-5 lg:gap-5">
                                                             <div class="col-span-12 lg:col-span-2">
-                                                                <div class="text-center">
-                                                                    <a href="#">
-                                                                        <img src="{{ url_for('profile.static', filename='uploads/'+company.avatar)}}" alt="" class="md:mx-auto img-fluid rounded-3" />
-                                                                    </a>
-                                                                </div>
+                                                                <img src="{{ job.cover}}" alt="" class="md:mx-auto img-fluid h-full w-full object-cover rounded-3" />
                                                             </div>
                                                             <div class="col-span-10">
                                                                 <h5 class="mb-1 fs-17">
-                                                                    <a href="job-details.html" class="text-gray-900 dark:text-gray-50">{{ job.title }}</a>
+                                                                    <a href="/jobs/{{job.id}}" class="text-gray-900 dark:text-gray-50">{{ job.title }}</a>
                                                                 </h5>
                                                                 <ul class="flex flex-wrap gap-3 mb-0">
                                                                     <li>
-                                                                        <p class="mb-0 text-sm text-gray-500 dark:text-gray-300 capitalize">{{job.company.name}}</p>
+                                                                        <a href="#">
+                                                                            <p class="mb-0 text-sm text-gray-500 dark:text-gray-300 capitalize">{{job.company.name}}</p>
+                                                                        </a>
                                                                     </li>
                                                                     <li>
                                                                         <p class="mb-0 text-sm text-gray-500 dark:text-gray-300"><i class="mdi mdi-map-marker"></i> {{job.company.location}}</p>
                                                                     </li>
                                                                     <li>
-                                                                        <p class="mb-0 text-sm text-gray-500 dark:text-gray-300">
-                                                                            <i class="uil uil-wallet ltr:mr-2 rtl:ml-2"></i>ksh.{{ job.salary }} / month
-                                                                        </p>
+                                                                        <p class="mb-0 text-sm text-gray-500 dark:text-gray-300"><i class="uil uil-wallet ltr:mr-2 rtl:ml-2"></i>ksh.{{ job.salary }} / month</p>
                                                                     </li>
                                                                 </ul>
                                                                 <div class="mt-4">
@@ -265,13 +256,8 @@
                                                 <h5 class="mb-3 text-gray-900 fs-17 fw-semibold dark:text-gray-50">My Account</h5>
                                                 <div class="text-center">
                                                     <div class="relative mb-4">
-                                                        <img
-                                                            src="{{ url_for('profile.static', filename='uploads/'+company.avatar)}}"
-                                                            class="w-40 h-40 p-1 mx-auto border-2 rounded-full border-gray-100/50 dark:border-neutral-600"
-                                                            id="profile-img"
-                                                            alt="{{company.name}}" />
-                                                        <div
-                                                            class="absolute w-8 h-8 leading-8 text-center rounded-full shadow-md bottom-2 right-[42%] z-40 bg-gray-50 dark:bg-neutral-700 dark:text-white">
+                                                        <img src="{{ url_for('profile.static', filename='uploads/'+company.avatar)}}" class="w-40 h-40 p-1 mx-auto border-2 rounded-full border-gray-100/50 dark:border-neutral-600" id="profile-img" alt="{{company.name}}" />
+                                                        <div class="absolute w-8 h-8 leading-8 text-center rounded-full shadow-md bottom-2 right-[42%] z-40 bg-gray-50 dark:bg-neutral-700 dark:text-white">
                                                             <input id="profile-img-file-input" type="file" name="profile" class="hidden" />
                                                             <label for="profile-img-file-input" class="">
                                                                 <i class="uil uil-edit"></i>
@@ -284,45 +270,25 @@
                                                         <div class="col-span-12 lg:col-span-6">
                                                             <div class="mb-3">
                                                                 <label for="userName" class="text-sm text-gray-900 dark:text-gray-50">Username</label>
-                                                                <input
-                                                                    type="text"
-                                                                    class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600"
-                                                                    id="userName"
-                                                                    name="username"
-                                                                    value="{{ user.username }}" />
+                                                                <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="userName" name="username" value="{{ user.username }}" />
                                                             </div>
                                                         </div>
                                                         <div class="col-span-12 lg:col-span-6">
                                                             <div class="mb-3">
                                                                 <label for="fullName" class="text-sm text-gray-900 dark:text-gray-50">Fullnames</label>
-                                                                <input
-                                                                    type="text"
-                                                                    class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600"
-                                                                    id="fullName"
-                                                                    name="fullname"
-                                                                    value="{{ user.fullnames }}" />
+                                                                <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="fullName" name="fullname" value="{{ user.fullnames }}" />
                                                             </div>
                                                         </div>
                                                         <div class="col-span-12 lg:col-span-6">
                                                             <div class="mb-3">
                                                                 <label for="phone" class="text-sm text-gray-900 dark:text-gray-50">Phone Number</label>
-                                                                <input
-                                                                    type="text"
-                                                                    class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600"
-                                                                    id="phone"
-                                                                    name="phone_number"
-                                                                    value="{{ user.phone_number }}" />
+                                                                <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="phone" name="phone_number" value="{{ user.phone_number }}" />
                                                             </div>
                                                         </div>
                                                         <div class="col-span-12 lg:col-span-6">
                                                             <div class="mb-3">
                                                                 <label for="email" class="text-sm text-gray-900 dark:text-gray-50">Email</label>
-                                                                <input
-                                                                    type="text"
-                                                                    class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600"
-                                                                    id="email"
-                                                                    name="email"
-                                                                    value="{{ user.email }}" />
+                                                                <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="email" name="email" value="{{ user.email }}" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -334,11 +300,7 @@
                                                     <div class="col-span-12">
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlTextarea1" class="form-label dark:text-gray-300">Introduce Yourself</label>
-                                                            <textarea
-                                                                class="w-full mt-1 text-sm rounded border-gray-100/50 dark:bg-transparent dark:border-neutral-600 dark:text-gray-300"
-                                                                rows="5"
-                                                                name="about"
-                                                                id="about">
+                                                            <textarea class="w-full mt-1 text-sm rounded border-gray-100/50 dark:bg-transparent dark:border-neutral-600 dark:text-gray-300" rows="5" name="about" id="about">
 {{ user.about
                                                                 }}</textarea
                                                             >
@@ -347,34 +309,19 @@
                                                     <div class="col-span-12 lg:col-span-6">
                                                         <div class="mb-3">
                                                             <label for="languages" class="text-sm text-gray-900 dark:text-gray-50">Languages</label>
-                                                            <input
-                                                                type="text"
-                                                                class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600"
-                                                                id="languages"
-                                                                name="languages"
-                                                                value="{% for lang in user.languages %}{{ lang }}{% if not loop.last %}, {% endif %}{% endfor %}" />
+                                                            <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="languages" name="languages" value="{% for lang in user.languages %}{{ lang }}{% if not loop.last %}, {% endif %}{% endfor %}" />
                                                         </div>
                                                     </div>
                                                     <div class="col-span-12 lg:col-span-6">
                                                         <div class="mb-3">
                                                             <label for="location" class="text-sm text-gray-900 dark:text-gray-50">Location</label>
-                                                            <input
-                                                                type="text"
-                                                                class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600"
-                                                                id="location"
-                                                                name="current_location"
-                                                                value="{{ user.current_location }}" />
+                                                            <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="location" name="current_location" value="{{ user.current_location }}" />
                                                         </div>
                                                     </div>
                                                     <div class="col-span-12 lg:col-span-6">
                                                         <div class="mb-3">
                                                             <label for="skills" class="text-sm text-gray-900 dark:text-gray-50">Skills</label>
-                                                            <input
-                                                                type="text"
-                                                                class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600"
-                                                                id="skills"
-                                                                name="skills"
-                                                                value="{% for skill in user.skills %}{{ skill }}{% if not loop.last %}, {% endif %}{% endfor %}" />
+                                                            <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="skills" name="skills" value="{% for skill in user.skills %}{{ skill }}{% if not loop.last %}, {% endif %}{% endfor %}" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -391,45 +338,25 @@
                                                     <div class="col-span-12 lg:col-span-6">
                                                         <div class="mb-3">
                                                             <label for="facebook" class="text-sm text-gray-900 dark:text-gray-50">Facebook</label>
-                                                            <input
-                                                                type="text"
-                                                                class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600"
-                                                                id="facebook"
-                                                                name="fb"
-                                                                placeholder="https://www.facebook.com" />
+                                                            <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="facebook" name="fb" placeholder="https://www.facebook.com" />
                                                         </div>
                                                     </div>
                                                     <div class="col-span-12 lg:col-span-6">
                                                         <div class="mb-3">
                                                             <label for="twitter" class="text-sm text-gray-900 dark:text-gray-50">Twitter</label>
-                                                            <input
-                                                                type="text"
-                                                                class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600"
-                                                                id="twitter"
-                                                                name="xplatform"
-                                                                placeholder="https://www.twitter.com" />
+                                                            <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="twitter" name="xplatform" placeholder="https://www.twitter.com" />
                                                         </div>
                                                     </div>
                                                     <div class="col-span-12 lg:col-span-6">
                                                         <div class="mb-3">
                                                             <label for="linkedin" class="text-sm text-gray-900 dark:text-gray-50">Linkedin</label>
-                                                            <input
-                                                                type="text"
-                                                                class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600"
-                                                                id="linkedin"
-                                                                name="linkedin"
-                                                                placeholder="https://www.linkedin.com" />
+                                                            <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="linkedin" name="linkedin" placeholder="https://www.linkedin.com" />
                                                         </div>
                                                     </div>
                                                     <div class="col-span-12 lg:col-span-6">
                                                         <div class="mb-3">
                                                             <label for="whatsapp" class="text-sm text-gray-900 dark:text-gray-50">Whatsapp</label>
-                                                            <input
-                                                                type="text"
-                                                                class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600"
-                                                                id="whatsapp"
-                                                                name="whatsapp"
-                                                                placeholder="0711111111" />
+                                                            <input type="text" class="w-full mt-1 text-gray-500 border rounded border-gray-100/50 text-13 dark:bg-transparent dark:border-neutral-600" id="whatsapp" name="whatsapp" placeholder="0711111111" />
                                                         </div>
                                                     </div>
                                                 </div>

@@ -61,8 +61,7 @@
 
 <div class="main-content">
     <div class="page-content">
-        <section
-            class="pt-28 lg:pt-44 pb-28 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 dark:bg-neutral-900 bg-[url('../images/home/page-title.png')] bg-center bg-cover relative">
+        <section class="pt-28 lg:pt-44 pb-28 group-data-[theme-color=violet]:bg-violet-500 group-data-[theme-color=sky]:bg-sky-500 group-data-[theme-color=red]:bg-red-500 group-data-[theme-color=green]:bg-green-500 group-data-[theme-color=pink]:bg-pink-500 group-data-[theme-color=blue]:bg-blue-500 dark:bg-neutral-900 bg-[url('../images/home/page-title.png')] bg-center bg-cover relative">
             <div class="container mx-auto">
                 <div class="grid">
                     <div class="col-span-12">
@@ -162,10 +161,7 @@
                                 <div class="grid grid-cols-12 gap-y-5 lg:gap-5">
                                     <div class="col-span-12">
                                         <div class="relative overflow-hidden rounded-md group/gallery">
-                                            <img
-                                                src="{{data.coverImg}}"
-                                                alt=""
-                                                class="transition-all duration-300 ease-in-out group-hover/gallery:scale-110" />
+                                            <img src="{{data.coverImg}}" alt="" class="transition-all duration-300 ease-in-out group-hover/gallery:scale-110" />
                                             <div class="transition-all duration-300 ease-in-out group-hover/gallery:bg-black/40 group-hover/gallery:absolute group-hover/gallery:inset-0"></div>
                                         </div>
                                     </div>
@@ -180,11 +176,7 @@
                                         <div class="p-6">
                                             <div class="grid grid-cols-12 gap-y-5 lg:gap-5">
                                                 <div class="col-span-12 lg:col-span-2">
-                                                    <div class="text-center">
-                                                        <a href="/companies/{{job.id}}"
-                                                            ><img src="{{job.company.avatar}}" alt="" class="md:mx-auto img-fluid rounded-3"
-                                                        /></a>
-                                                    </div>
+                                                    <img src="{{job.cover}}" alt="" class="md:mx-auto img-fluid w-full h-full rounded-3 object-cover" />
                                                 </div>
                                                 <div class="col-span-10">
                                                     <h5 class="mb-1 fs-17">
@@ -192,7 +184,9 @@
                                                     </h5>
                                                     <ul class="flex flex-wrap gap-3 mb-0">
                                                         <li>
-                                                            <p class="mb-0 text-sm text-gray-500 dark:text-gray-300 capitalize">{{data.name}}</p>
+                                                            <a href="/companies/{{job.id}}">
+                                                                <p class="mb-0 text-sm text-gray-500 dark:text-gray-300 capitalize">{{data.name}}</p>
+                                                            </a>
                                                         </li>
                                                         <li>
                                                             <p class="mb-0 text-sm text-gray-500 dark:text-gray-300">
